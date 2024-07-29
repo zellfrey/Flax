@@ -1,0 +1,23 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:recipe_shapeless": {
+	  "description": {
+	  "identifier": "flax:rope_arrow_item"
+	  },
+	  
+	  "tags": [ "crafting_table" ],
+	  "ingredients": [
+		{
+		  "item": "flax:rope_item"
+		},
+		{
+		  "item": "minecraft:arrow"
+		}
+	  ],
+	  "result": {
+		"item": "flax:rope_arrow_item",
+		"count": 1
+	  }
+	}
+  }
+  

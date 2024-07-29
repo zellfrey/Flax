@@ -1,0 +1,26 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:item": {
+      "description": {
+        "identifier": "flax:flower_flax_item",
+        "menu_category": {
+                "category": "items"
+            }
+      }, 
+      "components": {
+        "minecraft:tags": {
+          "tags": [
+              "flax:flower"
+          ]
+        },
+        "minecraft:hand_equipped": false,
+        "minecraft:icon": "flower_flax",
+        "minecraft:display_name":{
+          "value": "item.flax:flower_flax.name"
+        },
+        "minecraft:block_placer": {
+          "block": "flax:flower_flax"
+        }
+      }
+    }
+  }

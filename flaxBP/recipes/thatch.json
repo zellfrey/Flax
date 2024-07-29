@@ -1,0 +1,27 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:recipe_shaped": {
+    "description": {
+        "identifier": "flax:thatch"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+        "###",
+        "#~#",
+        "###"
+    ],
+    "key": {
+        "#": {
+        "item": "flax:reeds_dry"
+        },
+        "~": {
+            "item": "minecraft:string"
+            }
+    },
+    "result": {
+        "item": "flax:thatch",
+        "count": 4
+    }
+    }
+}
+                 

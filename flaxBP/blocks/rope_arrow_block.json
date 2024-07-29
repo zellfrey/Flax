@@ -1,0 +1,75 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+      "description": {
+        "identifier": "flax:rope_arrow_block",
+        "menu_category": {
+            "category": "none"
+        },
+        "states": {
+          "flax:rope_face": ["South","North", "West", "East", "Down"]
+        }
+      },
+      "components": {
+        "minecraft:custom_components": ["flax:on_player_destroy_rope_arrow"],
+        "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.3
+        },
+        "minecraft:flammable": {
+          "catch_chance_modifier": 5, 
+          "destroy_chance_modifier": 20
+        },
+        "minecraft:loot": "loot_tables/blocks/rope_arrow_block.json",
+        "minecraft:geometry": "geometry.rope_arrow",
+        "minecraft:material_instances": {
+          "*": {
+            "texture": "rope_arrow",
+            "render_method": "alpha_test",
+            "face_dimming": true,
+            "ambient_occlusion": false
+          }
+        },
+        "minecraft:collision_box": {
+          "origin": [-2, 0, -2],
+          "size": [4, 8, 4]
+        },
+        "minecraft:selection_box": {
+          "origin": [-2.0, 0.0, -2.0],
+          "size": [4.0, 8.0, 4.0]
+        }
+      },
+      "permutations": [
+        {
+          "condition": "q.block_state('flax:rope_face') == 'South'",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 0, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('flax:rope_face') == 'North'",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 180, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('flax:rope_face') == 'West'",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, -90, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('flax:rope_face') == 'East'",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 90, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('flax:rope_face') == 'Down'",
+          "components": {
+            "minecraft:geometry": "geometry.rope_arrow_up"
+          }
+        }
+    ]
+    }
+  }
+  

@@ -1,0 +1,24 @@
+{
+   "resource_pack_name" : "flax item textures",
+   "texture_name" : "atlas.items",
+   "texture_data" : {
+      "reeds_dry":{
+			"textures": "textures/items/reeds_dry"
+		},
+      "flax_seeds":{
+			"textures": "textures/items/flax_seeds"
+		},
+      "flax_fibre":{
+      "textures": "textures/items/flax_fibre"
+      },
+      "flower_flax":{
+      "textures": "textures/items/flower_flax"
+      },
+      "rope_item":{
+         "textures": "textures/items/rope_item"
+      },
+      "rope_arrow_item":{
+         "textures": "textures/items/rope_arrow_item"
+      }
+   }
+}

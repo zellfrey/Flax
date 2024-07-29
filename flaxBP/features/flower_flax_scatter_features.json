@@ -1,0 +1,20 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "flax:flower_flax_scatter_features"
+		},
+		"places_feature": "flax:flower_flax_features",
+		"iterations": 3,
+		"x": {
+			"distribution": "gaussian",
+			"extent": [0,5]
+		},
+		"y": 0,
+		"z": {
+			"distribution": "gaussian",
+			"extent": [0,5]
+		},
+		"scatter_chance": 10
+	}
+}

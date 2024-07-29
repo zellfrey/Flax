@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "flax:rope_item",
+      "menu_category": {
+                "category": "items"
+            }
+    }, 
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:icon": "rope_item",
+      "minecraft:display_name":{
+        "value": "item.flax:rope_item.name"
+      },
+      "minecraft:block_placer": {
+        "block": "flax:rope"
+        }
+    }
+  }
+}

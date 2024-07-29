@@ -1,0 +1,29 @@
+##---------------------------------
+##Items---------------------------------
+item.flax:reeds_dry.name=Dry Reeds
+item.flax:flax_seeds.name=Flax Seeds
+item.flax:flax_fibre.name=Flax Fibre
+item.flax:flower_flax.name=Flax Flower
+item.flax:rope_item.name=Rope
+item.flax:rope_arrow_item.name=Rope Arrow
+
+##---------------------------------
+##Decorative Blocks---------------------------------
+tile.flax:thatch.name=Thatch
+
+##---------------------------------
+##Slabs---------------------------------
+
+##---------------------------------
+##Doors---------------------------------
+
+
+##---------------------------------
+##Crops---------------------------------
+tile.flax:flax_crop.name=Flax
+
+##---------------------------------
+##Misc---------------------------------
+
+
+##Author Comments: If a block isnt in the language file then it shouldnt be obtained in any non-survival means

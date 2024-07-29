@@ -1,0 +1,14 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:recipe_furnace": {
+      "description": {
+      "identifier": "flax:furnace_reeds_dry"
+      },
+  
+      
+      "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+      "input": "minecraft:sugar_cane",
+      "output": "flax:reeds_dry"
+    }
+    
+  }

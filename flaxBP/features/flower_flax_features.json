@@ -1,0 +1,15 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "flax:flower_flax_features"
+		},
+		"places_block": "flax:flower_flax",
+		"enforce_placement_rules": true,
+		"enforce_survivability_rules": true,
+		"may_replace": ["minecraft:air"],
+		"may_attach_to": {
+			"bottom": ["minecraft:grass"]
+		}
+	}
+}

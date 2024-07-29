@@ -1,0 +1,23 @@
+{
+    "format_version": 2,
+    "header": {
+      "description": "Resource pack for Flax addon v1.0.0", 
+      "name": "Flax",
+      "uuid":"019c467e-f716-4fa5-8108-ed6747ae482f",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 20, 80]
+     },
+     "metadata": {
+      "authors": ["Beardedflea/Zellfrey"],
+      "license": "Please don't copy my homework",
+          "url": "https://github.com/zellfrey"
+    },
+    "modules": [
+      {
+        "description": "Resource pack for Flax addon v1.0.0", 
+        "type": "resources",
+        "uuid": "a3292967-a43e-43d3-bb50-5e283ae068fa",
+        "version": [1, 0, 0]
+      }
+    ]
+   }

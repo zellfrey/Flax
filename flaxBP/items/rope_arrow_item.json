@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "flax:rope_arrow_item",
+      "menu_category": {
+        	"category": "items"
+      }
+    }, 
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:icon": "rope_arrow_item",
+      "minecraft:display_name":{
+        "value": "item.flax:rope_arrow_item.name"
+      },
+      "minecraft:throwable":{
+        "do_swing_animation" : true,
+        "launch_power_scale" : 3.0,
+        "max_draw_duration" : 0.0,
+        "max_launch_power" : 3.0,
+        "min_draw_duration" : 0.0,
+        "scale_power_by_draw_duration" : false
+      },    
+      "minecraft:projectile":{
+        "minimum_critical_power": 1.25,
+        "projectile_entity": "flax:rope_arrow_entity"
+      }
+    }
+  }
+}

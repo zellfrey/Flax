@@ -1,0 +1,41 @@
+{ 
+  "resource_pack_name": "Flax terrain textures", 
+  "texture_name": "atlas.terrain", 
+  "padding": 8, 
+  "num_mip_levels": 4, 
+  "texture_data": {
+    "thatch_top":{
+      "textures": "textures/blocks/thatch_top"
+    },
+    "thatch_side":{
+      "textures": "textures/blocks/thatch_side"
+    },
+    "thatch_side_horizontal":{
+      "textures": "textures/blocks/thatch_side_horizontal"
+    },
+    "flax_crop_0": {
+      "textures": "textures/blocks/crop_flax/flax_crop_0"
+    },
+    "flax_crop_1": {
+      "textures": "textures/blocks/crop_flax/flax_crop_1"
+    },
+    "flax_crop_2": {
+      "textures": "textures/blocks/crop_flax/flax_crop_2"
+    },
+    "flax_crop_3": {
+      "textures": "textures/blocks/crop_flax/flax_crop_3"
+    },
+    "flower_flax":{
+      "textures": "textures/items/flower_flax"
+    },
+    "rope_anchor":{
+      "textures": "textures/blocks/rope_anchor"
+    },
+    "rope_end":{
+      "textures": "textures/blocks/rope_end"
+    },
+    "rope_arrow":{
+      "textures": "textures/blocks/rope_arrow"
+    }
+  }
+} 

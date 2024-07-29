@@ -1,0 +1,108 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "flax:flax_crop",
+      "menu_category": {
+        "category": "none"
+      },
+      "states": {
+        "flax:growth_stage": [0, 1, 2, 3],
+        "flax:max_stage":[3,0]
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["flax:fertilize","flax:grow_basic", "flax:destroy_crop_water"],
+      "minecraft:collision_box": false,
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up"],
+            "block_filter": ["minecraft:farmland"]
+          }
+        ]
+      },
+      "minecraft:loot": "loot_tables/blocks/crops/flax_crop_young.json",
+      "minecraft:tick": {
+          "interval_range": [10,10]
+			},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      "minecraft:flammable": {
+        "catch_chance_modifier": 30, 
+        "destroy_chance_modifier": 100
+      },
+      "minecraft:selection_box": {
+          "origin": [-8, 0, -8],
+          "size": [16, 2, 16]
+      },
+      "minecraft:geometry": "geometry.crop",
+      "minecraft:light_dampening": 0,
+      "minecraft:map_color": "#8aa8ff",
+      "minecraft:material_instances": {
+          "*": {
+            "texture": "flax_crop_0",
+            "render_method": "alpha_test",
+            "face_dimming": true,
+            "ambient_occlusion": false
+          }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('flax:growth_stage') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "flax_crop_1",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 5, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('flax:growth_stage') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "flax_crop_2",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 9, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('flax:growth_stage') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "flax_crop_3",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 13, 16]
+          },
+          "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json",
+          "minecraft:custom_components":["flax:destroy_crop_water", "flax:on_player_destroy_flax"]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+      "description": {
+        "identifier": "flax:thatch_carpet",
+        "menu_category": {
+            "category": "none"
+        },
+        "traits": {
+          "minecraft:placement_position": {
+            "enabled_states": ["minecraft:block_face"]
+          }
+        }
+      },
+      "components": {
+        "minecraft:friction": 0.4,
+        "minecraft:map_color": "#caa851",
+        "minecraft:flammable": {
+          "catch_chance_modifier": 30, 
+          "destroy_chance_modifier": 100
+        },
+        "minecraft:destructible_by_explosion": {
+          "explosion_resistance": 10
+        },
+        "minecraft:destructible_by_mining": {
+          "seconds_to_destroy": 0.1
+        },
+        "minecraft:material_instances": {
+          "*": {
+            "texture": "thatch_side"
+          },
+          "end": {
+            "texture": "thatch_top"
+          },
+          "up": "end",
+          "down": "end"
+        },
+        "minecraft:collision_box": {
+          "origin": [-8, 0, -8],
+          "size": [16, 1, 16]
+        },
+        "minecraft:selection_box": {
+          "origin": [-8.0, 0.0, -8.0],
+          "size": [16.0, 1.0, 16.0]
+        },
+        "minecraft:geometry": "geometry.carpet",
+        "minecraft:loot": "loot_tables/blocks/thatch_carpet.json"
+      },
+      "permutations": [
+        {
+          "condition": "query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south'",
+          "components": {
+            "minecraft:material_instances": {
+              "*": {
+                "texture": "thatch_side"
+                },
+                "end": {
+                "texture": "thatch_top"
+                },
+                "north": "end",
+                "south": "end"
+            }
+          }
+        },
+        {
+          "condition": "query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west'",
+          "components": {
+            "minecraft:material_instances": {
+              "*": {
+                "texture": "thatch_side"
+                },
+                "end": {
+                "texture": "thatch_top"
+                },
+                "north": "end",
+                "south": "end"
+            },
+            "minecraft:transformation": { "rotation": [0, 90, 0] }
+          }
+        }
+      ]
+    }
+  }
+    

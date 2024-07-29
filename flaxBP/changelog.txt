@@ -1,0 +1,20 @@
+v1.0.0
+Added:
+    Generation:
+    Scripts:
+    Blocks:
+    Recipes:
+    Items:
+Updated:
+    Generation:
+    Scripts:
+    Blocks:
+    Recipes:
+    Items:
+Removed:
+    Generation:
+    Scripts:
+    Items:
+    Blocks:
+Author comment: Release of flax addon. I hope people enjoy this small project
+-----------------------------------------------

@@ -1,0 +1,21 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:item": {
+      "description": {
+        "identifier": "flax:reeds_dry",
+        "menu_category": {
+                "category": "items"
+            }
+      }, 
+      "components": {
+        "minecraft:hand_equipped": false,
+        "minecraft:icon": "reeds_dry",
+        "minecraft:display_name":{
+          "value": "item.flax:reeds_dry.name"
+        },
+        "minecraft:block_placer": {
+          "block": "flax:thatch_carpet"
+        }
+      }
+    }
+  }
