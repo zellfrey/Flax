@@ -1,10 +1,36 @@
 v1.0.0
 Added:
     Generation:
+        Flax flower world generation
     Scripts:
+        containerUtils.js
+        cropFlax.js
+        flowerFlax.js
+        main.js
+        rope.js
+        ropeArrow.js
     Blocks:
+        flax crops
+        flax flower
+        rope arrow block
+        rope
+        thatch carpet
+        thatch
+    Entities:
+        rope arrow
     Recipes:
+        flax_to_string
+        furnace_reeds_dry
+        rope_arrow_item
+        rope_item
+        thatch
     Items:
+        flax fibre
+        flax seeds
+        flax flower
+        dry reeds 
+        rope arrow
+        rope
 Updated:
     Generation:
     Scripts:
