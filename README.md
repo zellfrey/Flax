@@ -23,3 +23,6 @@ Download the latest .mcaddon file, and once downloaded left click the file and m
 ## Permissions:
 This mod is available under GPLv3.
 You are allowed to include it into mod packs of any kind, without asking for permission.
+
+### A brief tour:
+[video](https://www.youtube.com/watch?v=bv0wMF9ChfE)
