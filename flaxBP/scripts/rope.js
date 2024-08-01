@@ -130,6 +130,7 @@ const ClimbableBlocks = {
     }
 }
 
+//Thanks to discord user: finnafinest_ for the original ladder code
 system.runInterval(()=>{
     for (let player of world.getAllPlayers()) {
 
