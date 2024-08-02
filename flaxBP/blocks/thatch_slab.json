@@ -37,9 +37,6 @@
 				  "up": "end",
 				  "down": "end"
 			},
-			"minecraft:on_player_placing": {
-				"event": "gvpa_axis"
-			},
 			"minecraft:geometry": { 
 				  "identifier": "geometry.slab",
 				  "bone_visibility": { 
