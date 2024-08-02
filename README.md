@@ -7,7 +7,7 @@ to compliment the early to mid game vanilla experience, whilst also adding more 
 ![Flax blocks & items showcase](https://i.imgur.com/otyJFwQ.png)
 
 ## Requirements
-Minecraft Bedrock Edition - min version 1.20.80
+Minecraft Bedrock Edition - min version 1.21.0
 
 **Experiments:**
 - [ ] Holiday Creator Features
