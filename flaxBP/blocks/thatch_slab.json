@@ -49,10 +49,6 @@
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' &&  q.block_state('gvpa:axis') == 2 && !q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:on_interact": {
-						"event": "double",
-						"condition": "q.is_item_name_any('slot.weapon.mainhand',0,'gvpa:thatch_slab_h')&& q.block_face==1"
-					},
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
 						"size": [16, 8, 16]
@@ -82,10 +78,6 @@
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' &&  q.block_state('gvpa:axis') == 1 && !q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:on_interact": {
-						"event": "double",
-						"condition": "q.is_item_name_any('slot.weapon.mainhand',0,'gvpa:thatch_slab_h')&& q.block_face==1"
-					},
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
 						"size": [16, 8, 16]
@@ -114,10 +106,6 @@
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && !q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:on_interact": {
-						"event": "double",
-						"condition": "q.is_item_name_any('slot.weapon.mainhand',0,'gvpa:thatch_slab_h')&& q.block_face==1"
-					},
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
 						"size": [16, 8, 16]
@@ -131,10 +119,6 @@
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'top' &&  q.block_state('gvpa:axis') == 2 && !q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:on_interact": {
-						"event": "double",
-						"condition": "q.is_item_name_any('slot.weapon.mainhand',0,'gvpa:thatch_slab_h')&& q.block_face==0"
-					},
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
 						"size": [16, 8, 16]
@@ -164,10 +148,6 @@
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'top' &&  q.block_state('gvpa:axis') == 1 && !q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:on_interact": {
-						"event": "double",
-						"condition": "q.is_item_name_any('slot.weapon.mainhand',0,'gvpa:thatch_slab_h')&& q.block_face==0"
-					},
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
 						"size": [16, 8, 16]
@@ -196,10 +176,6 @@
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:on_interact": {
-						"event": "double",
-						"condition": "q.is_item_name_any('slot.weapon.mainhand',0,'gvpa:thatch_slab_h')&&q.block_face==0"
-					},
 					"minecraft:collision_box": {
 						"origin": [-8, 8, -8],
 						"size": [16, 8, 16]
@@ -213,33 +189,9 @@
 			{
 				"condition": "q.block_state('gvpa:double')",
 				"components": {
-					"minecraft:geometry": "minecraft:geometry.full_block",
-					"minecraft:on_player_destroyed": {
-						"event": "double_slab_loot"
-					}
+					"minecraft:geometry": "minecraft:geometry.full_block"
 				}
 			}
-		],
-		"events": {
-			"gvpa_axis": {
-				"set_block_state": {
-				  "gvpa:axis": "Math.floor(q.block_face / 2)"
-				}
-			},
-			"double_slab_loot": {
-				"spawn_loot": {}
-			},
-			"double": {
-				"set_block_state": {
-					"gvpa:double": true
-				  },
-				"run_command": {
-					"command": [
-						"playsound use.stone @a ~~~"
-					]
-				},
-				"decrement_stack": {}
-			}
-		}
+		]
 	}
 }
