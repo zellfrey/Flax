@@ -1,3 +1,13 @@
+-----------------------------------------------
+v1.0.1
+Updated:
+    Generation:
+    Scripts:
+    Blocks:
+        thatch slab - removed events. The addon can now be run without Holiday Creator Features
+    Recipes:
+    Items:
+-----------------------------------------------
 v1.0.0
 Added:
     Generation:
