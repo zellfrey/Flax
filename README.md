@@ -10,7 +10,7 @@ to compliment the early to mid game vanilla experience, whilst also adding more 
 Minecraft Bedrock Edition - min version 1.20.80
 
 **Experiments:**
-- [x] Holiday Creator Features
+- [ ] Holiday Creator Features
 - [x] Custom biomes
 - [ ] Upcoming Creator Features
 - [x] Beta APIs
