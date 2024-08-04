@@ -4,16 +4,15 @@
 		"description": {
 			"identifier": "flax:thatch_slab",
 			"menu_category": {
-				"category": "none"
-			  },
+				"category": "construction"
+			},
 			"traits": {
 				"minecraft:placement_position": {
-				  "enabled_states": ["minecraft:vertical_half"]
+				  "enabled_states": ["minecraft:block_face","minecraft:vertical_half"]
 				}
 			},
 			"states": {
-				"gvpa:double": [false, true],
-				"gvpa:axis": [0, 1, 2]
+				"flax:double": [false, true]
 			  }
 		},
 		"components": {
@@ -47,7 +46,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' &&  q.block_state('gvpa:axis') == 2 && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
@@ -76,7 +75,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' &&  q.block_state('gvpa:axis') == 1 && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
@@ -104,7 +103,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (query.block_state('minecraft:block_face') == 'up' || query.block_state('minecraft:block_face') == 'down') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
@@ -117,14 +116,14 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' &&  q.block_state('gvpa:axis') == 2 && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
-						"origin": [-8, 0, -8],
+						"origin": [-8, 8, -8],
 						"size": [16, 8, 16]
 					},
 					"minecraft:selection_box": {
-						"origin": [-8.0, 0.0, -8.0],
+						"origin": [-8.0, 8.0, -8.0],
 						"size": [16.0, 8.0, 16.0]
 				   },
 				   "minecraft:material_instances": {
@@ -146,14 +145,14 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' &&  q.block_state('gvpa:axis') == 1 && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
-						"origin": [-8, 0, -8],
+						"origin": [-8, 8, -8],
 						"size": [16, 8, 16]
 					},
 					"minecraft:selection_box": {
-						"origin": [-8.0, 0.0, -8.0],
+						"origin": [-8.0, 8.0, -8.0],
 						"size": [16.0, 8.0, 16.0]
 				   },
 				   "minecraft:material_instances": {
@@ -174,7 +173,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'up' || query.block_state('minecraft:block_face') == 'down') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 8, -8],
@@ -187,7 +186,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('gvpa:double')",
+				"condition": "q.block_state('flax:double')",
 				"components": {
 					"minecraft:geometry": "minecraft:geometry.full_block"
 				}
