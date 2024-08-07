@@ -58,20 +58,14 @@
 				   },
 				   "minecraft:material_instances": {
 					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
 						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
-				},
-				   "minecraft:transformation": { "rotation": [0, 90, 0] }
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+					}
 				}
 			},
 			{
@@ -87,19 +81,15 @@
 				   },
 				   "minecraft:material_instances": {
 					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
 						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
-				}
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+					},
+				"minecraft:transformation": { "rotation": [0, -90, 0] }
 				}
 			},
 			{
@@ -116,60 +106,50 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
-				"components": {
-					"minecraft:collision_box": {
-						"origin": [-8, 8, -8],
-						"size": [16, 8, 16]
-					},
-					"minecraft:selection_box": {
-						"origin": [-8.0, 8.0, -8.0],
-						"size": [16.0, 8.0, 16.0]
-				   },
-				   "minecraft:material_instances": {
-					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
-						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
+			"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
+			"components": {
+				"minecraft:collision_box": {
+					"origin": [-8, 8, -8],
+					"size": [16, 8, 16]
 				},
-				   "minecraft:transformation": { "rotation": [0, 90, 0] }
+				"minecraft:selection_box": {
+					"origin": [-8.0, 8.0, -8.0],
+					"size": [16.0, 8.0, 16.0]
+				},
+				"minecraft:material_instances": {
+					"*": {
+						"texture": "thatch_side_horizontal"
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+					}
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
-				"components": {
-					"minecraft:collision_box": {
-						"origin": [-8, 8, -8],
-						"size": [16, 8, 16]
-					},
-					"minecraft:selection_box": {
-						"origin": [-8.0, 8.0, -8.0],
-						"size": [16.0, 8.0, 16.0]
-				   },
-				   "minecraft:material_instances": {
+			"condition": "q.block_state('minecraft:vertical_half') == 'top' && (query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
+			"components": {
+				"minecraft:collision_box": {
+					"origin": [-8, 8, -8],
+					"size": [16, 8, 16]
+				},
+				"minecraft:selection_box": {
+					"origin": [-8.0, 8.0, -8.0],
+					"size": [16.0, 8.0, 16.0]
+				},
+				"minecraft:material_instances": {
 					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
 						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
-				}
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+					},
+				"minecraft:transformation": { "rotation": [0, -90, 0] }
 				}
 			},
 			{
