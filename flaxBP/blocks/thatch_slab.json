@@ -36,8 +36,10 @@
 				  "up": "end",
 				  "down": "end"
 			},
+			//Using rotatable slab for inventory display. The textures don't match, but its hardly noticable and this will reduce the repeat of the object
+			//There are 2 models within this block. "slab" is the traditional model, and rotatable has texture UVs moved around to emmulate a rotating block like a log
 			"minecraft:geometry": { 
-				  "identifier": "geometry.slab",
+				  "identifier": "geometry.slab_rotatable",
 				  "bone_visibility": { 
 					"slab_top": "q.block_state('minecraft:vertical_half') == 'top'", 
 					"slab_bottom": "q.block_state('minecraft:vertical_half') == 'bottom'" 
@@ -102,7 +104,14 @@
 					"minecraft:selection_box": {
 						"origin": [-8.0, 0.0, -8.0],
 						"size": [16.0, 8.0, 16.0]
-				   }
+				   },
+					"minecraft:geometry": { 
+				  	"identifier": "geometry.slab",
+					"bone_visibility": { 
+						"slab_top": false, 
+						"slab_bottom": true
+						}
+					}
 				}
 			},
 			{
@@ -162,6 +171,13 @@
 					"minecraft:selection_box": {
 						"origin": [-8.0, 8.0, -8.0],
 						"size": [16.0, 8.0, 16.0]
+					},
+					"minecraft:geometry": { 
+				  	"identifier": "geometry.slab",
+					"bone_visibility": { 
+						"slab_top": true, 
+						"slab_bottom": false
+						}
 					}
 				}
 			},

@@ -10,6 +10,7 @@ item.flax:rope_arrow_item.name=Rope Arrow
 ##---------------------------------
 ##Decorative Blocks---------------------------------
 tile.flax:thatch.name=Thatch
+tile.flax:thatch_slab.name=Thatch Slab
 
 ##---------------------------------
 ##Slabs---------------------------------
