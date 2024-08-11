@@ -24,10 +24,29 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     block.setPermutation(block.permutation.withState('flax:axis', axisNum));
                     setMainHand(player, equipment, selectedItem);
                     world.playSound('use.grass', block.location);
-                    
+
                 }
                 
             }
+        }
+    });
+});
+
+world.beforeEvents.worldInitialize.subscribe(eventData => {
+    eventData.blockTypeRegistry.registerCustomComponent('flax:on_player_destroy_slab', {
+        onPlayerDestroy(e) {
+            const {player, destroyedBlockPermutation: perm } = e;
+
+            if (!player || !player.getComponent('equippable'))  return;
+
+            // const selectedItem = player.getComponent('equippable').getEquipment('Mainhand');
+            // if (!selectedItem || !selectedItem.hasTag('minecraft:is_pickaxe')) {
+            //     return;
+            // }
+            if (player.getGameMode() === "creative") return;
+
+            const slabItem = perm.getItemStack(1);
+            if (slabItem) e.dimension.spawnItem(slabItem, e.block.location);
         }
     });
 });

@@ -200,12 +200,14 @@
 			{
 				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 0",
 				"components": {
+					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
 					"minecraft:geometry": "minecraft:geometry.full_block"
 				}
 			},
 			{
 				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 1",
 				"components": {
+					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
 					"minecraft:geometry": "minecraft:geometry.full_block",
 					"minecraft:transformation": {"rotation": [90,0,0]}
 				}
@@ -213,6 +215,7 @@
 			{
 				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 2",
 				"components": {
+					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
 					"minecraft:geometry": "minecraft:geometry.full_block",
 					"minecraft:transformation": {"rotation": [0,90,-90]}
 				}
