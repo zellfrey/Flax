@@ -14,7 +14,7 @@
     }, 
     "modules": [ 
      { 
-      "description": "Behaviour pack for Flax addon v1.0.0", 
+      "description": "Behaviour pack for Flax addon v1.1.1", 
       "type": "data", 
       "uuid": "d46e9cbe-0d9e-44cf-abee-1380742e3924", 
       "version": [ 1, 1, 1 ] 
