@@ -2,7 +2,7 @@ import {world, ItemStack, Direction, system, BlockPermutation} from "@minecraft/
 import {setMainHand} from './containerUtils.js';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_interact_rotatable_slab', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_interact_rotatable_slab', {
         onPlayerInteract(e) {
             const { block, player, face } = e;
 
@@ -33,7 +33,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 });
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_player_destroy_slab', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_slab', {
         onPlayerDestroy(e) {
             const {player, destroyedBlockPermutation: perm } = e;
 

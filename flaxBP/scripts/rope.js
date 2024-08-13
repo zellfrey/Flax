@@ -2,7 +2,7 @@ import {world, ItemStack, system, BlockPermutation} from "@minecraft/server"
 import {setMainHand} from './containerUtils.js';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_place_rope', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_place_rope', {
         onPlace(e) {
             const { block } = e;
             if(block.above().typeId === "flax:rope"){
@@ -12,7 +12,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     });
 });
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_interact_rope', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_interact_rope', {
         onPlayerInteract(e) {
             const { block, player, face } = e;
 
@@ -97,7 +97,7 @@ export function* setBlockChain(origin, newBlock, originLocation, depth){
 //TODO, when origin block is broken, the item spawns in the block, which kind of ruins the method of getting all your items back, so for the time being
 //players will get -1 item, or atleast the original rope will be placed around the rope. Players could mitigate this by breaking the block above
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_player_destroy_rope', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_rope', {
         onPlayerDestroy(e) {
             const {player, block} = e;
 

@@ -1,5 +1,4 @@
 import {world } from "@minecraft/server";
-
 import {setMainHand } from './containerUtils.js';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {

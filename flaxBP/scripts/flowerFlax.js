@@ -1,7 +1,7 @@
 import {world, ItemStack} from '@minecraft/server';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:destroy_water_flower_flax', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:destroy_water_flower_flax', {
         onTick(e) {
             try{
                 const { block } = e;
@@ -20,7 +20,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 });
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_player_interact_flower_flax', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_interact_flower_flax', {
         onPlayerInteract(e) {
             const {player, block} = e;
 

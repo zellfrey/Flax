@@ -5,7 +5,7 @@ import {setBlockChain, breakRopeChain} from './rope.js';
 
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_player_destroy_rope_arrow', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_rope_arrow', {
         onPlayerDestroy(e) {
             const {player, block} = e;
 

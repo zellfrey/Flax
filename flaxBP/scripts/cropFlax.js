@@ -2,7 +2,7 @@ import {world, ItemStack} from '@minecraft/server';
 import {setMainHand} from './containerUtils.js';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:grow_basic', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:grow_basic', {
         onRandomTick(e) {
             const { block } = e;
             const cropStage = block.permutation.getState('flax:growth_stage');
@@ -19,7 +19,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     *With that being said, I've reduced the chance from 100% down to 24%. Mean average shit. I changed my mind, im moving it down to 20%
 */ 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:fertilize', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:fertilize', {
         onPlayerInteract(e) {
             const { block, player } = e;
 
@@ -52,7 +52,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 });
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:destroy_crop_water', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:destroy_crop_water', {
         onTick(e) {
             try{
                 const { block } = e;
@@ -89,7 +89,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 //crops being destroyed from the sheer staring power of flowing liquids.
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockTypeRegistry.registerCustomComponent('flax:on_player_destroy_flax', {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_flax', {
         onPlayerDestroy(e) {
             const {player, block} = e;
 
