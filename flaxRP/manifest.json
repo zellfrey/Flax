@@ -4,7 +4,7 @@
       "description": "Resource pack for Flax addon v1.0.0", 
       "name": "Flax",
       "uuid":"019c467e-f716-4fa5-8108-ed6747ae482f",
-      "version": [1, 0, 0],
+      "version": [1, 1, 1],
       "min_engine_version": [1, 20, 80]
      },
      "metadata": {
@@ -17,7 +17,7 @@
         "description": "Resource pack for Flax addon v1.0.0", 
         "type": "resources",
         "uuid": "a3292967-a43e-43d3-bb50-5e283ae068fa",
-        "version": [1, 0, 0]
+        "version": [1, 1, 1]
       }
     ]
    }

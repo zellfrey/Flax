@@ -4,7 +4,7 @@
      "description": "Behaviour pack for Flax addon v1.0.0", 
      "name": "Flax", 
      "uuid": "46dc1795-d185-4d8f-b68f-73f35a34be28", 
-     "version": [ 1, 0, 0 ], 
+     "version": [ 1, 1, 1 ], 
      "min_engine_version": [ 1, 20, 80 ] 
     },
     "metadata":{
@@ -17,11 +17,11 @@
       "description": "Behaviour pack for Flax addon v1.0.0", 
       "type": "data", 
       "uuid": "d46e9cbe-0d9e-44cf-abee-1380742e3924", 
-      "version": [ 1, 0, 0 ] 
+      "version": [ 1, 1, 1 ] 
      },
      {
         "uuid": "e9211b21-6fa2-4fd7-8fd9-e3e5a1a1a6d5",
-        "version": [1, 0, 0],
+        "version": [1, 1, 1],
         "type": "script",
         "language": "javascript",
         "entry": "scripts/main.js"
@@ -30,7 +30,7 @@
     "dependencies": [ 
      { 
       "uuid": "019c467e-f716-4fa5-8108-ed6747ae482f", 
-      "version": [ 1, 0, 0 ] 
+      "version": [ 1, 1, 1 ] 
      },
      {
          "module_name": "@minecraft/server",
