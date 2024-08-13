@@ -14,6 +14,9 @@
 	},
   "flax:rope:":{
     "sound":"cloth"
+  },
+  "flax:thatch_slab":{
+    "sound" : "grass"
   }
 }
 

@@ -7,8 +7,8 @@
             "category": "none"
         },
         "traits": {
-          "minecraft:placement_position": {
-            "enabled_states": ["minecraft:block_face"]
+          "minecraft:placement_direction": {
+            "enabled_states": ["minecraft:facing_direction"]
           }
         }
       },
@@ -48,7 +48,7 @@
       },
       "permutations": [
         {
-          "condition": "query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south'",
+          "condition": "query.block_state('minecraft:facing_direction') == 'north' || query.block_state('minecraft:facing_direction') == 'south'",
           "components": {
             "minecraft:material_instances": {
               "*": {
@@ -63,7 +63,7 @@
           }
         },
         {
-          "condition": "query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west'",
+          "condition": "query.block_state('minecraft:facing_direction') == 'east' || query.block_state('minecraft:facing_direction') == 'west'",
           "components": {
             "minecraft:material_instances": {
               "*": {

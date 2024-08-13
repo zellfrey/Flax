@@ -4,28 +4,31 @@
 		"description": {
 			"identifier": "flax:thatch_slab",
 			"menu_category": {
-				"category": "none"
-			  },
+				"category": "construction"
+			},
 			"traits": {
 				"minecraft:placement_position": {
-				  "enabled_states": ["minecraft:vertical_half"]
+				  "enabled_states": ["minecraft:block_face","minecraft:vertical_half"]
 				}
 			},
 			"states": {
-				"gvpa:double": [false, true],
-				"gvpa:axis": [0, 1, 2]
+				"flax:axis":[0,1,2],
+				"flax:double": [false, true]
 			  }
 		},
 		"components": {
+			"minecraft:custom_components": ["flax:on_interact_rotatable_slab"],
 			"tag:slab": {},
-			"minecraft:friction": 0.4,
-        	"minecraft:map_color": "#b38836", 
-        	"minecraft:light_emission": 0,
+			"minecraft:flammable": {
+          		"catch_chance_modifier": 30, 
+          		"destroy_chance_modifier": 100
+			},
+			"minecraft:map_color": "#caa851", 
 			"minecraft:destructible_by_explosion": {
-			"explosion_resistance": 30
+				"explosion_resistance": 30
 			},
 			"minecraft:destructible_by_mining": {
-			"seconds_to_destroy": 0.3
+				"seconds_to_destroy": 0.3
 			},
 			"minecraft:material_instances": {
 				"*": {
@@ -47,7 +50,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' &&  q.block_state('gvpa:axis') == 2 && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
@@ -59,24 +62,25 @@
 				   },
 				   "minecraft:material_instances": {
 					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
 						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
-				},
-				   "minecraft:transformation": { "rotation": [0, 90, 0] }
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+					},
+					"minecraft:geometry": { 
+						"identifier": "geometry.slab_rotatable",
+						"bone_visibility": { 
+							"slab_top": false, 
+							"slab_bottom": true 
+							}
+					}
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' &&  q.block_state('gvpa:axis') == 1 && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
@@ -88,23 +92,26 @@
 				   },
 				   "minecraft:material_instances": {
 					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
 						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
-				}
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+					},
+					"minecraft:geometry": { 
+						"identifier": "geometry.slab_rotatable",
+						"bone_visibility": { 
+							"slab_top": false, 
+							"slab_bottom": true 
+							}
+					},
+					"minecraft:transformation": { "rotation": [0, -90, 0] }
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && !q.block_state('gvpa:double')",
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -8],
@@ -117,64 +124,68 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' &&  q.block_state('gvpa:axis') == 2 && !q.block_state('gvpa:double')",
-				"components": {
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -8],
-						"size": [16, 8, 16]
-					},
-					"minecraft:selection_box": {
-						"origin": [-8.0, 0.0, -8.0],
-						"size": [16.0, 8.0, 16.0]
-				   },
-				   "minecraft:material_instances": {
-					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
-						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
+			"condition": "q.block_state('minecraft:vertical_half') == 'top' && (q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
+			"components": {
+				"minecraft:collision_box": {
+					"origin": [-8, 8, -8],
+					"size": [16, 8, 16]
 				},
-				   "minecraft:transformation": { "rotation": [0, 90, 0] }
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' &&  q.block_state('gvpa:axis') == 1 && !q.block_state('gvpa:double')",
-				"components": {
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -8],
-						"size": [16, 8, 16]
-					},
-					"minecraft:selection_box": {
-						"origin": [-8.0, 0.0, -8.0],
-						"size": [16.0, 8.0, 16.0]
-				   },
-				   "minecraft:material_instances": {
+				"minecraft:selection_box": {
+					"origin": [-8.0, 8.0, -8.0],
+					"size": [16.0, 8.0, 16.0]
+				},
+				"minecraft:material_instances": {
 					"*": {
-						"texture": "thatch_side"
-					  },
-					  "end": {
-						"texture": "thatch_top"
-					  },
-					  "side": {
 						"texture": "thatch_side_horizontal"
-					  },
-					  "north": "end",
-					  "south": "end",
-					  "west": "side",
-					  "east": "side"
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+				},
+				"minecraft:geometry": { 
+					"identifier": "geometry.slab_rotatable",
+					"bone_visibility": { 
+						"slab_top": true, 
+						"slab_bottom": false 
+						}
 				}
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('gvpa:double')",
+			"condition": "q.block_state('minecraft:vertical_half') == 'top' && (q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
+			"components": {
+				"minecraft:collision_box": {
+					"origin": [-8, 8, -8],
+					"size": [16, 8, 16]
+				},
+				"minecraft:selection_box": {
+					"origin": [-8.0, 8.0, -8.0],
+					"size": [16.0, 8.0, 16.0]
+				},
+				"minecraft:material_instances": {
+					"*": {
+						"texture": "thatch_side_horizontal"
+						},
+						"end": {
+						"texture": "thatch_top"
+						},
+						"west": "end",
+						"east": "end"
+				},
+				"minecraft:geometry": { 
+					"identifier": "geometry.slab_rotatable",
+					"bone_visibility": { 
+						"slab_top": true, 
+						"slab_bottom": false 
+						}
+				},
+				"minecraft:transformation": { "rotation": [0, -90, 0] }
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:vertical_half') == 'top' && (q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down') && !q.block_state('flax:double')",
 				"components": {
 					"minecraft:collision_box": {
 						"origin": [-8, 8, -8],
@@ -187,9 +198,26 @@
 				}
 			},
 			{
-				"condition": "q.block_state('gvpa:double')",
+				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 0",
 				"components": {
+					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
 					"minecraft:geometry": "minecraft:geometry.full_block"
+				}
+			},
+			{
+				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 1",
+				"components": {
+					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:transformation": {"rotation": [90,0,0]}
+				}
+			},
+			{
+				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 2",
+				"components": {
+					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:transformation": {"rotation": [0,90,-90]}
 				}
 			}
 		]
