@@ -1,4 +1,27 @@
 -----------------------------------------------
+v1.1
+Added:
+    Generation:
+    Scripts:
+    slabThatch.js
+    Blocks:
+        Thatch Slab
+    Entities:
+    Recipes:
+        flax flower to light blue dye
+        thatch to thatch slab
+        thatch slab to thatch
+    Items:
+Updated:
+    Generation:
+    Scripts:
+    Blocks:
+        Thatch carpets' placement position changed to "minecraft:facing_direction" - It should be less frustrating placing thatch carpets(dry reeds)
+    Recipes:
+    Items:
+Author comment: The original release was meant to include the thatch slab. But i wanted to get the addon out before it sits around collecting mould.
+-----------------------------------------------
+-----------------------------------------------
 v1.0.1
 Updated:
     Generation:
