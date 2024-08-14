@@ -20,7 +20,7 @@
         "catch_chance_modifier": 30, 
         "destroy_chance_modifier": 100
       },
-      "minecraft:geometry": "geometry.flower",
+      "minecraft:geometry": "minecraft:geometry.cross",
       "minecraft:material_instances": {
         "*": {
           "texture": "flower_flax",
