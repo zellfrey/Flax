@@ -1,3 +1,21 @@
+v1.2
+Added:
+    Generation:
+    Scripts:
+    Blocks:
+        Potted flax flower
+    Entities:
+    Recipes:
+    Items:
+Updated:
+    Generation:
+    Scripts:
+    Blocks:
+        
+    Recipes:
+    Items:
+Author comment: 
+-----------------------------------------------
 -----------------------------------------------
 v1.1.1
 Updated:
