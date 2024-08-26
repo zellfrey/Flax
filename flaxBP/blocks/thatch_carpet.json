@@ -4,7 +4,8 @@
       "description": {
         "identifier": "flax:thatch_carpet",
         "menu_category": {
-            "category": "none"
+            "category": "none",
+            "is_hidden_in_commands": true
         },
         "traits": {
           "minecraft:placement_direction": {

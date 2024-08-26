@@ -4,7 +4,8 @@
       "description": {
         "identifier": "flax:rope",
         "menu_category": {
-            "category": "none"
+            "category": "none",
+            "is_hidden_in_commands": true
         },
         "states": {
           "flax:rope_end": [true, false]
