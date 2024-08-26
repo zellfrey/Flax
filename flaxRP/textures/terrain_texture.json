@@ -36,6 +36,9 @@
     },
     "rope_arrow":{
       "textures": "textures/blocks/rope_arrow"
+    },
+    "potted_flax":{
+      "textures": "textures/blocks/potted_flower_flax"
     }
   }
 } 
