@@ -14,3 +14,6 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
 
 //Wait for v1.21.10, will implement in v1.1
+//imagine it being that easy. Unfortunately i think the best way to implement this feature as of now is to "hack" the event pipeline
+//basically instead of using itemcomponents, i would have to detect the interaction through built in events that track the entirety of
+//the game. 
