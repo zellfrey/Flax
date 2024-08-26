@@ -4,7 +4,7 @@
       "description": {
         "identifier": "flax:potted_flower_flax",
         "menu_category": {
-          "category": "construction"
+          "category": "none"
         }
       },
       "components": {
@@ -18,6 +18,7 @@
           "catch_chance_modifier": 30, 
           "destroy_chance_modifier": 100
         },
+        "minecraft:loot": "loot_tables/blocks/potted_flower_flax.json",
         "minecraft:collision_box": {
             "origin": [-3, 0, -3],
             "size": [6, 6, 6]

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.80",
+    "format_version": "1.21.10",
     "minecraft:item": {
       "description": {
         "identifier": "flax:flower_flax_item",
@@ -8,6 +8,7 @@
             }
       }, 
       "components": {
+        "minecraft:custom_components": ["flax:on_use_on_flower_pot"],
         "minecraft:tags": {
           "tags": [
               "flax:flower"
