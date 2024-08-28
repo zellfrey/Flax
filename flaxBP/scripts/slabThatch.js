@@ -43,6 +43,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             // if (!selectedItem || !selectedItem.hasTag('minecraft:is_pickaxe')) {
             //     return;
             // }
+            //TODO
+            //Small testing, a sword seems to destroy hay bales faster than other tools. Will also implement more functionality for every tool to loose durability(or maybe it willbe added shortly)
             if (player.getGameMode() === "creative") return;
 
             const slabItem = perm.getItemStack(1);
