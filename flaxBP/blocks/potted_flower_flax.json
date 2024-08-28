@@ -9,9 +9,10 @@
         }
       },
       "components": {
+        "minecraft:custom_components": ["flax:on_player_interact_potted_flax"],
         "minecraft:destructible_by_explosion": {
-			"explosion_resistance": 30
-		},
+			    "explosion_resistance": 30
+		    },
         "minecraft:destructible_by_mining": {
           "seconds_to_destroy": 0
         },

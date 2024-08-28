@@ -7,7 +7,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const { source, usedOnBlockPermutation} = e;
             // if(usedOnBlockPermutation.type.id !== "minecraft:composter") return;
             // console.warn("please fill")
-            console.warn(usedOnBlockPermutation.type.id)
+            console.warn(block.typeId)
         }
     });
 });
