@@ -1,5 +1,5 @@
 import {world, ItemStack} from '@minecraft/server';
-import {setMainHand} from './containerUtils.js';
+import {setMainHand, getFirstAvailableSlot} from './containerUtils.js';
 
 //flax flower item components
 world.beforeEvents.worldInitialize.subscribe(eventData => {
@@ -79,18 +79,22 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const selectedItem = player.getComponent('equippable').getEquipment('Mainhand');
 
             if (!selectedItem || selectedItem.typeId !== "flax:flower_flax_item"){
-                const inventory = player.getComponent("inventory").container;
-                //In vanilla minecraft, when a player interacts with a flower pot. The flower that is obtained will be added to the first slot
-                //that is not at the item max amount. I.e, it will iterate over all valid slots until it finds the stack that isnt maxxed.
-                //If all stacks are maxxed, then it will add the item to the first available slot. 
-                //Currently this method will find the first empty/available slot to add an item to a players inventory. 
-                //So why the paragraph of needless explaining of a trivial matter. Well quite simply put, mod & vanilla parity.
-                //To expand, if the addon has minor behaviours that deviate from the base game, then the illusion of it being part of the game is broken.
-                //E.g custom slabs don't have adjacent placement. Yes im still banging on about that shit. Fite me
-                inventory.addItem(new ItemStack("flax:flower_flax_item", 1))
 
+                const inventory = player.getComponent("inventory").container;
+                
+                inventory.addItem(new ItemStack("flax:flower_flax_item", 1)) 
                 block.setType("minecraft:flower_pot");
             }
         }
     });
 });
+
+//In vanilla minecraft, when a player interacts with a flower pot. The flower that is obtained will be added to the first slot
+//that is not at the item max amount. I.e, it will iterate over all valid slots until it finds the stack that isnt maxxed.
+//If all stacks are maxxed, then it will add the item to the first available slot. 
+//Currently this method will find the first empty/available slot to add an item to a players inventory.
+//inventory.addItem(new ItemStack("flax:flower_flax_item", 1)) 
+//So why the paragraph of needless explaining of a trivial matter. Well quite simply put, mod & vanilla parity.
+//To expand, if the addon has minor behaviours that deviate from the base game, then the illusion of it being part of the game is broken.
+//E.g custom slabs don't have adjacent placement. Yes im still banging on about that shit. Fite me
+//Basically im breaking up the interact method to better align with minecraft
