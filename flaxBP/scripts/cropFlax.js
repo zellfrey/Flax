@@ -25,7 +25,6 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             if(!player || !player.getComponent('equippable')) return;
             
-            const { x, y, z } = block.location;
             const equipment = player.getComponent('equippable');
             const selectedItem = equipment.getEquipment('Mainhand');
             const cropStage = block.permutation.getState('flax:growth_stage');
@@ -44,9 +43,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             setMainHand(player, equipment, selectedItem);
 
             world.playSound('item.bone_meal.use', block.location);
-            // block.dimension.spawnParticle("minecraft:crop_growth_emitter", block.location) this spawns particles at the blocks origin
-            //runCommand spawns the particles in the centre of the block 
-            block.dimension.runCommand(`/particle minecraft:crop_growth_emitter ${x} ${y} ${z}`);
+
+            block.dimension.spawnParticle("minecraft:crop_growth_emitter", block.center())
         }
     });
 });

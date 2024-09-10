@@ -1,6 +1,7 @@
 import {world, system } from "@minecraft/server";
 import {setMainHand } from './containerUtils.js';
 
+//Method only works when a player is sneaking
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.itemComponentRegistry.registerCustomComponent('flax:composter_compat_seeds', {
         onUseOn(e) {
@@ -20,8 +21,9 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             else{
                 world.playSound(fillSound, block.location);
                 block.setPermutation(block.permutation.withState("composter_fill_level", fillLevel+1));
-                block.dimension.spawnParticle("minecraft:crop_growth_emitter", block.center())
             }
+            block.dimension.spawnParticle("minecraft:crop_growth_emitter", block.center())
+            
             const equipment = source.getComponent('equippable');
             const selectedItem = equipment.getEquipment('Mainhand');
             
@@ -40,7 +42,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     });
 });
 
-
+//player does not need to sneak for this event to be triggered
 // world.beforeEvents.itemUseOn.subscribe(e => {
 //     const { source, block, itemStack} = e;
 //     console.warn(block.typeId)

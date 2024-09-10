@@ -95,10 +95,3 @@ function dropEntityItem(entity, item){
     entity.dimension.spawnItem(new ItemStack(item, 1), entity.location);
     entity.remove();
 }
-
-/*
-depth = 20
-itemStack = 40
-remainingAmount = 20 -40
-remainingAmount = -20
-*/
