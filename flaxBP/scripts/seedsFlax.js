@@ -19,10 +19,27 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     });
 });
 
-//player does not need to sneak for this event to be triggered
+// player does not need to sneak for this event to be triggered
 // world.beforeEvents.itemUseOn.subscribe(e => {
+    
+//     if(e.block.typeId !== "minecraft:composter") return;
 //     const { source, block, itemStack} = e;
-//     console.warn(block.typeId)
+
+//     if(itemStack.typeId === "flax:flower_flax_item" || itemStack.typeId === "flax:flax_seeds"){
+//         e.cancel = true;
+//       if (source.lastTick == undefined) {source.lastTick = 0 }
+//         if (system.currentTick - source.lastTick > 5) {
+//           system.run(() => {
+//             const equipment = source.getComponent('equippable');
+//             const selectedItem = equipment.getEquipment('Mainhand');
+//             const fillChance = itemStack.typeId === "flax:flower_flax_item" ? 65 : 30;
+//             composterFill(block, fillChance)
+//             setMainHand(source, equipment, selectedItem);
+//           });
+//           source.lastTick = system.currentTick;
+//     }
+//     }
+    
 // });
 
 //vanilla compat function, was tempted to make a separate file, but allow that bruv
