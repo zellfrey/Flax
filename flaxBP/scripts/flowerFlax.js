@@ -1,15 +1,19 @@
 import {world, ItemStack} from '@minecraft/server';
-import {setMainHand, getFirstAvailableSlot} from './containerUtils.js';
+import {setMainHand} from './containerUtils.js';
+import {composterFill} from './seedsFlax.js';
 
 //flax flower item components
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.itemComponentRegistry.registerCustomComponent('flax:on_use_on_flower_pot', {
         onUseOn(e) {
             const { source, block} = e;
-            if(block.typeId !== "minecraft:flower_pot") return;
+            if(block.typeId === "minecraft:flower_pot"){
+                block.setType("flax:potted_flower_flax");
+            }
+            else if(block.typeId === "minecraft:composter"){
+                composterFill(block, 65)
+            }
             
-            block.setType("flax:potted_flower_flax");
-
             const equipment = source.getComponent('equippable');
             const selectedItem = equipment.getEquipment('Mainhand');
             
