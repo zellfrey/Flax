@@ -7,14 +7,10 @@ to compliment the early to mid game vanilla experience, whilst also adding more 
 ![Flax blocks & items showcase](https://i.imgur.com/otyJFwQ.png)
 
 ## Requirements
-Minecraft Bedrock Edition - min version 1.21.0
+Minecraft Bedrock Edition - min version 1.21.10
 
 **Experiments:**
-- [ ] Holiday Creator Features
 - [x] Custom biomes
-- [ ] Upcoming Creator Features
-- [x] Beta APIs
-- [ ] Villager Trading Rebalancing
  
 ## Installation
 Download the latest .mcaddon file, and once downloaded left click the file and minecraft bedrock should import both the RP and BP folder onto your game
