@@ -2,19 +2,30 @@ v1.2
 Added:
     Generation:
     Scripts:
+        Flax flower onUseOn on a flower pot to create potted flax flower
+        Composter compability for both flax flower and seeds. PLease note, this functionality can only be achieved if the player is sneaking
+        Potted flax flower interaction allowing quick removal akin to vanilla plant pots
     Blocks:
         Potted flax flower
     Entities:
     Recipes:
     Items:
 Updated:
+    -manifest.json versions bumped, min engine -> 1.21.10, addon version -> 1.2.0
     Generation:
     Scripts:
+        Small cleanup in various filess. For more detail, you can check out the commits on the github page
     Blocks:
-        
+        Increased destroy time of both thatch block and slab, this is so it's closer to hay bale destroy time
     Recipes:
     Items:
-Author comment: 
+Author comment: As of right now, I am confident in saying that this addon is feature complete. I am totally aware that I haven't covered every
+                small detail related to minecraft's sandbox nature, e.g flowers or crops being destroyed due to piston extensions.
+                With that said, I could continue bringing more vanilla parity and bring small and slow updates as time goes on. This options depends
+                on the tech that we as developers have available to us. Or, add features that somewhat fit the theme of the addon, e.g the addition of
+                a lobster pot. This could make the addon broad of scope and not so focused. Or finally, do nothing and conclude the addon with only QoL
+                changes and bug fixes.
+                Would love some feedback, you can either comment on the curseforge page, github issues, or message me via discord @ beardedflea 
 -----------------------------------------------
 -----------------------------------------------
 v1.1.1
