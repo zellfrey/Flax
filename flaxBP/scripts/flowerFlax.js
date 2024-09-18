@@ -7,6 +7,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.itemComponentRegistry.registerCustomComponent('flax:on_use_on_flower_pot', {
         onUseOn(e) {
             const { source, block} = e;
+            if(block.typeId === "minecraft:grass_block" && !block.above().isAir) return;
+
             if(block.typeId === "minecraft:flower_pot"){
                 block.setType("flax:potted_flower_flax");
             }
