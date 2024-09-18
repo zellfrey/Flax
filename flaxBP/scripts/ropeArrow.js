@@ -32,7 +32,7 @@ world.afterEvents.projectileHitBlock.subscribe(e =>{
         const adjacentBlock = getAdjacentBlock(block, face);
 
         //Make a check so that the arrow isnt deleting any non-full blocks
-        if(adjacentBlock.typeId != "minecraft:air"){
+        if(!adjacentBlock.isAir){
             dropEntityItem(arrow, "flax:rope_arrow_item")
             return;
         }
@@ -82,7 +82,7 @@ function getNextSolidBlock(origin, minRange){
     let solidBlock;
     while (below > minRange){
         solidBlock = origin.dimension.getBlock({x:origin.x , y:below, z:origin.z})
-        if(solidBlock.typeId != "minecraft:air") return solidBlock;
+        if(!solidBlock.isAir) return solidBlock;
         below--;
     }  
     return solidBlock = origin.dimension.getBlock({x:origin.x , y:minRange, z:origin.z});

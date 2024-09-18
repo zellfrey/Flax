@@ -46,7 +46,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     below = ropeEndPoint.dimension.getBlock({x:ropeEndPoint.x , y:ropeEndPoint.y - 1, z:ropeEndPoint.z})
                 }
                 
-                if(below.typeId === "minecraft:air"){
+                if(below.isAir){
                     below.setType("flax:rope")
                     setMainHand(player, equipment, selectedItem);
                     world.playSound("use.cloth", block.location);

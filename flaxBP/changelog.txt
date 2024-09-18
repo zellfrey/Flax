@@ -3,7 +3,7 @@ Added:
     Generation:
     Scripts:
         Flax flower onUseOn on a flower pot to create potted flax flower
-        Composter compability for both flax flower and seeds. PLease note, this functionality can only be achieved if the player is sneaking
+        Composter compability for both flax flower and seeds. Please note, this functionality can only be achieved if the player is sneaking
         Potted flax flower interaction allowing quick removal akin to vanilla plant pots
     Blocks:
         Potted flax flower
@@ -16,6 +16,7 @@ Updated:
     Scripts:
         Small cleanup in various filess. For more detail, you can check out the commits on the github page
     Blocks:
+        Some blocks are now hidden in commands
         Increased destroy time of both thatch block and slab, this is so it's closer to hay bale destroy time
     Recipes:
     Items:
