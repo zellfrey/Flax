@@ -15,6 +15,14 @@
     "components": {
       "minecraft:custom_components": ["flax:fertilize","flax:grow_basic"],
       "minecraft:collision_box": false,
+      "minecraft:placement_filter": {
+        "conditions": [
+            {
+                "allowed_faces": ["up"],
+                "block_filter": ["minecraft:farmland"]
+            }
+        ]
+      },
       "minecraft:liquid_detection": {
         "detection_rules": [
             {
