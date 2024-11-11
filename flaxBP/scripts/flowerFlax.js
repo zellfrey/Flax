@@ -25,24 +25,25 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     });
 });
 //flax flower block components
-world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('flax:destroy_water_flower_flax', {
-        onTick(e) {
-            try{
-                const { block } = e;
-                const surroundingBlocks = [block.above(), block.north(), block.south(), block.west(), block.east()]
-                const findWater = surroundingBlocks.find(block => block.typeId === "minecraft:water");
+//Don't need as "minecraft:liquid_detection is now a thing". Keeping just in case i need something that utilises something similar(im a hoarder)
+// world.beforeEvents.worldInitialize.subscribe(eventData => {
+//     eventData.blockComponentRegistry.registerCustomComponent('flax:destroy_water_flower_flax', {
+//         onTick(e) {
+//             try{
+//                 const { block } = e;
+//                 const surroundingBlocks = [block.above(), block.north(), block.south(), block.west(), block.east()]
+//                 const findWater = surroundingBlocks.find(block => block.typeId === "minecraft:water");
 
-                if(findWater === undefined) return;
-                //console.warn(`data: §7${JSON.stringify(findWater.permutation.getAllStates(), null, 4)}`);
-                destroyFlower(block);
-            } 
-            catch (error) {
-                console.error()
-            }
-        }
-    });
-});
+//                 if(findWater === undefined) return;
+//                 //console.warn(`data: §7${JSON.stringify(findWater.permutation.getAllStates(), null, 4)}`);
+//                 destroyFlower(block);
+//             } 
+//             catch (error) {
+//                 console.error()
+//             }
+//         }
+//     });
+// });
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_interact_flower_flax', {
@@ -63,18 +64,6 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     });
 });
 
-
-function destroyFlower(block){
-    const flax = Math.floor(Math.random() * 2) + 1;
-    const seed = Math.floor(Math.random() * 2);
-    block.dimension.spawnItem(new ItemStack("flax:flax_fibre", flax), block.location)
-
-    if(seed != 0){
-        block.dimension.spawnItem(new ItemStack("flax:flax_seeds", seed), block.location)
-    }
-    block.setType("minecraft:air");
-    world.playSound('dig.grass', block.location);
-}
 
 //potted flower components(shoving here since its 1 function, and sort of related to the rest here)
 world.beforeEvents.worldInitialize.subscribe(eventData => {

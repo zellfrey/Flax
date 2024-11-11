@@ -48,41 +48,41 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
         }
     });
 });
+//Don't need as "minecraft:liquid_detection is now a thing". Keeping just in case i need something that utilises something similar(im a hoarder)
+// world.beforeEvents.worldInitialize.subscribe(eventData => {
+//     eventData.blockComponentRegistry.registerCustomComponent('flax:destroy_crop_water', {
+//         onTick(e) {
+//             try{
+//                 const { block } = e;
+//                 const surroundingBlocks = [block.above(), block.north(), block.south(), block.west(), block.east()]
+//                 const findWater = surroundingBlocks.find(block => block.typeId === "minecraft:water");
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('flax:destroy_crop_water', {
-        onTick(e) {
-            try{
-                const { block } = e;
-                const surroundingBlocks = [block.above(), block.north(), block.south(), block.west(), block.east()]
-                const findWater = surroundingBlocks.find(block => block.typeId === "minecraft:water");
-
-                if(findWater === undefined) return;
-                //console.warn(`data: §7${JSON.stringify(findWater.permutation.getAllStates(), null, 4)}`);
-                const cropStage = block.permutation.getState('flax:growth_stage');
-                const maxGrowth = block.permutation.getState('flax:max_stage');
+//                 if(findWater === undefined) return;
+//                 //console.warn(`data: §7${JSON.stringify(findWater.permutation.getAllStates(), null, 4)}`);
+//                 const cropStage = block.permutation.getState('flax:growth_stage');
+//                 const maxGrowth = block.permutation.getState('flax:max_stage');
 
 
-                if(cropStage === maxGrowth){
-                    const flax = Math.floor(Math.random() * 2) + 1;
-                    const seed = Math.floor(Math.random() * 2);
-                    block.dimension.spawnItem(new ItemStack("flax:flax_fibre", flax), block.location)
+//                 if(cropStage === maxGrowth){
+//                     const flax = Math.floor(Math.random() * 2) + 1;
+//                     const seed = Math.floor(Math.random() * 2);
+//                     block.dimension.spawnItem(new ItemStack("flax:flax_fibre", flax), block.location)
 
-                    if(seed != 0){
-                        block.dimension.spawnItem(new ItemStack("flax:flax_seeds", seed), block.location)
-                    }
-                }
-                else{
-                    block.dimension.spawnItem(new ItemStack("flax:flax_seeds", 1), block.location)
-                }
-                block.setType("minecraft:air");
-                world.playSound('dig.grass', block.location);
-            } catch (error) {
-                console.error()
-            }
-        }
-    });
-});
+//                     if(seed != 0){
+//                         block.dimension.spawnItem(new ItemStack("flax:flax_seeds", seed), block.location)
+//                     }
+//                 }
+//                 else{
+//                     block.dimension.spawnItem(new ItemStack("flax:flax_seeds", 1), block.location)
+//                 }
+//                 block.setType("minecraft:air");
+//                 world.playSound('dig.grass', block.location);
+//             } catch (error) {
+//                 console.error()
+//             }
+//         }
+//     });
+// });
 //TODO: Current iteration cannot determine the flow direction of water, hence the delicate nature of
 //crops being destroyed from the sheer staring power of flowing liquids.
 

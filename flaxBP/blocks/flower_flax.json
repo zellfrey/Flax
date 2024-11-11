@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.21.50",
   "minecraft:block": {
     "description": {
       "identifier": "flax:flower_flax",
@@ -9,9 +9,18 @@
         }
     },
     "components": {
-      "minecraft:custom_components": ["flax:on_player_interact_flower_flax", "flax:destroy_water_flower_flax"],
+      "minecraft:custom_components": ["flax:on_player_interact_flower_flax"],
       "minecraft:collision_box": false,
-      "minecraft:map_color": "#8aa8ff", 
+      "minecraft:map_color": "#8aa8ff",
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+            {
+                "liquid_type": "water",
+                "on_liquid_touches": "popped",
+                "can_contain_liquid": false
+            }
+        ]
+      },
       "minecraft:light_emission": 0,
       "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json",
       "minecraft:destructible_by_mining": {
@@ -41,10 +50,7 @@
             "block_filter": ["minecraft:grass_block", "minecraft:dirt", "minecraft:podzol"]
           }
         ]
-      },
-      "minecraft:tick": {
-          "interval_range": [10,10]
-			  }
+      }
     }
   }
 }

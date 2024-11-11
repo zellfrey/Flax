@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.21.50",
   "minecraft:block": {
     "description": {
       "identifier": "flax:flax_crop",
@@ -13,14 +13,15 @@
       }
     },
     "components": {
-      "minecraft:custom_components": ["flax:fertilize","flax:grow_basic", "flax:destroy_crop_water"],
+      "minecraft:custom_components": ["flax:fertilize","flax:grow_basic"],
       "minecraft:collision_box": false,
-      "minecraft:placement_filter": {
-        "conditions": [
-          {
-            "allowed_faces": ["up"],
-            "block_filter": ["minecraft:farmland"]
-          }
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+            {
+                "liquid_type": "water",
+                "on_liquid_touches": "popped",
+                "can_contain_liquid": false
+            }
         ]
       },
       "minecraft:loot": "loot_tables/blocks/crops/flax_crop_young.json",
@@ -101,7 +102,7 @@
             "size": [16, 13, 16]
           },
           "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json",
-          "minecraft:custom_components":["flax:destroy_crop_water", "flax:on_player_destroy_flax"]
+          "minecraft:custom_components":["flax:on_player_destroy_flax"]
         }
       }
     ]
