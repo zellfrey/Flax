@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.21.50",
     "minecraft:item": {
       "description": {
         "identifier": "flax:flax_seeds",
@@ -8,7 +8,7 @@
             }
       }, 
       "components": {
-        "minecraft:custom_components": ["flax:composter_compat_seeds"],
+        "minecraft:custom_components": [],
         "minecraft:tags": {
           "tags": [
               "flax:seeds"
@@ -18,6 +18,9 @@
         "minecraft:icon": "flax_seeds",
         "minecraft:display_name":{
           "value": "item.flax:flax_seeds.name"
+        },
+        "minecraft:compostable":{
+          "composting_chance": 30
         },
         "minecraft:block_placer": {
 				"block": "flax:flax_crop"

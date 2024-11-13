@@ -5,7 +5,7 @@ import "./ropeArrow.js"
 import "./cropFlax.js"
 import "./flowerFlax.js"
 import "./slabThatch.js"
-import "./seedsFlax.js"
+// import "./seedsFlax.js"
 //General methods that don't fit a theme 
 
 

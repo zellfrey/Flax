@@ -1,6 +1,5 @@
 import {world, ItemStack} from '@minecraft/server';
 import {setMainHand} from './containerUtils.js';
-import {composterFill} from './seedsFlax.js';
 
 //flax flower item components
 world.beforeEvents.worldInitialize.subscribe(eventData => {
@@ -11,9 +10,6 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             if(block.typeId === "minecraft:flower_pot"){
                 block.setType("flax:potted_flower_flax");
-            }
-            else if(block.typeId === "minecraft:composter"){
-                composterFill(block, 65)
             }
             
             const equipment = source.getComponent('equippable');
