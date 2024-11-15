@@ -1,5 +1,6 @@
 import {world, ItemStack, Direction, system, BlockPermutation} from "@minecraft/server"
 import {setMainHand} from './containerUtils.js';
+import {getBlockFromFace} from './main.js'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_interact_rotatable_slab', {
@@ -31,6 +32,17 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
         }
     });
 });
+// world.beforeEvents.worldInitialize.subscribe(eventData => {
+//     eventData.blockComponentRegistry.registerCustomComponent('flax:before_on_place_rotatable_slab', {
+//         beforeOnPlayerPlace(e) {
+//             const {permutationToPlace, face} = e;
+//             const axisNum = Math.floor(Object.keys(Direction).indexOf(face.charAt(0).toUpperCase() + face.slice(1)) / 2)
+//             const isRotatable = axisNum === 0 ? true : false;
+
+//             e.permutationToPlace = permutationToPlace.withState('flax:rotatable_slab', isRotatable);
+//             }
+//     });
+// });
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_slab', {

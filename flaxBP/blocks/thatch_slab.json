@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.21.50",
 	"minecraft:block": {
 		"description": {
 			"identifier": "flax:thatch_slab",
@@ -30,6 +30,14 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0.5
 			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"liquid_type": "water",
+						"can_contain_liquid": true
+					}
+				]
+			},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "thatch_side"
@@ -48,6 +56,7 @@
 					}
 			}
 		},
+		//condition: q.block_state('flax:axis') == 0 is the default and isnt needed
 		"permutations": [
 			{
 				"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && (q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west') && !q.block_state('flax:double')",
@@ -150,7 +159,7 @@
 						"slab_top": true, 
 						"slab_bottom": false 
 						}
-				}
+					}
 				}
 			},
 			{
@@ -198,26 +207,30 @@
 				}
 			},
 			{
-				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 0",
+				"condition": "q.block_state('flax:axis') == 1",
 				"components": {
-					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
-					"minecraft:geometry": "minecraft:geometry.full_block"
-				}
-			},
-			{
-				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 1",
-				"components": {
-					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
-					"minecraft:geometry": "minecraft:geometry.full_block",
 					"minecraft:transformation": {"rotation": [90,0,0]}
 				}
 			},
 			{
-				"condition": "q.block_state('flax:double') && q.block_state('flax:axis') == 2",
+				"condition": "q.block_state('flax:axis') == 2",
+				"components": {
+					"minecraft:transformation": {"rotation": [0,90,-90]}
+				}
+			},
+			{
+				"condition": "q.block_state('flax:double')",
 				"components": {
 					"minecraft:custom_components": ["flax:on_player_destroy_slab"],
 					"minecraft:geometry": "minecraft:geometry.full_block",
-					"minecraft:transformation": {"rotation": [0,90,-90]}
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"liquid_type": "water",
+								"can_contain_liquid": false
+							}
+						]
+					}
 				}
 			}
 		]
