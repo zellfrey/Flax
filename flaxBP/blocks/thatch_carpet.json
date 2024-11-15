@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.80",
+    "format_version": "1.21.50",
     "minecraft:block": {
       "description": {
         "identifier": "flax:thatch_carpet",
@@ -26,6 +26,15 @@
         "minecraft:destructible_by_mining": {
           "seconds_to_destroy": 0.1
         },
+        "minecraft:liquid_detection": {
+          "detection_rules": [
+              {
+                  "liquid_type": "water",
+                  "on_liquid_touches": "popped",
+                  "can_contain_liquid": true
+              }
+          ]
+        },
         "minecraft:material_instances": {
           "*": {
             "texture": "thatch_side"
@@ -49,7 +58,7 @@
       },
       "permutations": [
         {
-          "condition": "query.block_state('minecraft:facing_direction') == 'north' || query.block_state('minecraft:facing_direction') == 'south'",
+          "condition": "q.block_state('minecraft:facing_direction') == 'north' || q.block_state('minecraft:facing_direction') == 'south'",
           "components": {
             "minecraft:material_instances": {
               "*": {
@@ -64,7 +73,7 @@
           }
         },
         {
-          "condition": "query.block_state('minecraft:facing_direction') == 'east' || query.block_state('minecraft:facing_direction') == 'west'",
+          "condition": "q.block_state('minecraft:facing_direction') == 'east' || q.block_state('minecraft:facing_direction') == 'west'",
           "components": {
             "minecraft:material_instances": {
               "*": {
