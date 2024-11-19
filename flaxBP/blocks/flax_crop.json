@@ -54,7 +54,7 @@
           "*": {
             "texture": "flax_crop_0",
             "render_method": "alpha_test",
-            "face_dimming": true,
+            "face_dimming": false,
             "ambient_occlusion": false
           }
       }
@@ -67,7 +67,7 @@
             "*": {
               "texture": "flax_crop_1",
               "render_method": "alpha_test",
-              "face_dimming": true,
+              "face_dimming": false,
               "ambient_occlusion": false
             }
           },
@@ -84,7 +84,7 @@
             "*": {
               "texture": "flax_crop_2",
               "render_method": "alpha_test",
-              "face_dimming": true,
+              "face_dimming": false,
               "ambient_occlusion": false
             }
           },
@@ -101,7 +101,7 @@
             "*": {
               "texture": "flax_crop_3",
               "render_method": "alpha_test",
-              "face_dimming": true,
+              "face_dimming": false,
               "ambient_occlusion": false
             }
           },
