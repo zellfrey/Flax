@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.80",
+    "format_version": "1.21.50",
     "minecraft:block": {
       "description": {
         "identifier": "flax:rope",
@@ -24,6 +24,14 @@
         "minecraft:destructible_by_explosion": {
           "explosion_resistance": 15
         },
+        "minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"liquid_type": "water",
+						"can_contain_liquid": true
+					}
+				]
+			  },
         "minecraft:geometry": { 
 				  "identifier": "geometry.rope",
 				  "bone_visibility": { 
