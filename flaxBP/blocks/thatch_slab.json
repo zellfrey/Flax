@@ -17,7 +17,7 @@
 			  }
 		},
 		"components": {
-			"minecraft:custom_components": ["flax:on_interact_rotatable_slab"],
+			"minecraft:custom_components": ["flax:before_on_place_rotatable_slab"],
 			"tag:slab": {},
 			"minecraft:flammable": {
           		"catch_chance_modifier": 30, 
