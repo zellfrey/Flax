@@ -12,7 +12,7 @@
         }
       },
       "components": {
-        "minecraft:custom_components": ["flax:on_interact_rope", "flax:on_player_destroy_rope", "flax:on_place_rope"],
+        "minecraft:custom_components": ["flax:on_player_destroy_rope", "flax:on_place_rope"],
         "tag:rope": {},
         "minecraft:flammable": {
           "catch_chance_modifier": 5, 

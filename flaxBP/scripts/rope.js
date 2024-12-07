@@ -1,39 +1,28 @@
 import {world, ItemStack, system, BlockPermutation} from "@minecraft/server"
 import {setMainHand} from './containerUtils.js';
 
+//rope item
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('flax:on_place_rope', {
-        onPlace(e) {
-            const { block } = e;
-            if(block.above().typeId === "flax:rope"){
-                block.above().setPermutation(block.above().permutation.withState("flax:rope_end", false));
-            }    
-        }
-    });
-});
-world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('flax:on_interact_rope', {
-        onPlayerInteract(e) {
-            const { block, player, face } = e;
+    eventData.itemComponentRegistry.registerCustomComponent("flax:on_use_on_rope", {
+        onUseOn(e) {
+            const { source, block, blockFace} = e;
 
-            if(face === "Down") return;
-            const equipment = player.getComponent('equippable');
+            if(blockFace === "Down") return;
+
+            const equipment = source.getComponent('equippable');
             const selectedItem = equipment.getEquipment('Mainhand');
 
-            if(!selectedItem) return;
-
             const isRopeEnd = block.permutation.getState("flax:rope_end");
-            
-            //TODO reduce the durability of shears
-            if(selectedItem.typeId === "minecraft:shears" && isRopeEnd){
+            const minRange = block.dimension.heightRange.min;
+
+            //changes the rope to allow for decoration
+            if(source.isSneaking && isRopeEnd){
                 block.setPermutation(block.permutation.withState("flax:rope_end", false));
                 world.playSound("use.cloth", block.location);
                 return;
             }
-
-            const minRange = block.dimension.heightRange.min;
-
-            if(selectedItem.typeId === "flax:rope_item" && block.location.y != minRange){
+            //adds 1 rope block to the bottom of a rope column
+            if(block.location.y != minRange){
                 let below; 
                 if(isRopeEnd){
                     below = block.below();
@@ -48,15 +37,25 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 
                 if(below.isAir){
                     below.setType("flax:rope")
-                    setMainHand(player, equipment, selectedItem);
+                    setMainHand(source, equipment, selectedItem);
                     world.playSound("use.cloth", block.location);
                 }
-                
             }
         }
     });
 });
 
+//rope block
+world.beforeEvents.worldInitialize.subscribe(eventData => {
+    eventData.blockComponentRegistry.registerCustomComponent('flax:on_place_rope', {
+        onPlace(e) {
+            const { block } = e;
+            if(block.above().typeId === "flax:rope"){
+                block.above().setPermutation(block.above().permutation.withState("flax:rope_end", false));
+            }    
+        }
+    });
+});
 function findRopeEnd(origin,minRange){
     let below = origin.y;
     let ropeEnd;

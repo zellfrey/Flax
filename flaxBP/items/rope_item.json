@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.21.50",
   "minecraft:item": {
     "description": {
       "identifier": "flax:rope_item",
@@ -8,6 +8,7 @@
             }
     }, 
     "components": {
+      "minecraft:custom_components": ["flax:on_use_on_rope"],
       "minecraft:hand_equipped": false,
       "minecraft:icon": "rope_item",
       "minecraft:display_name":{
