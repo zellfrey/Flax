@@ -1,3 +1,27 @@
+v1.2.1
+    Scripts:
+        - Removed behaviour for water breaking for flax crops and flowers
+        - Removed composter compability functionality
+        - Slab behaviour has been changed. onPlayerInteract has been replaced with beforeOnPlayerPlace,
+          so you don't need to sneak in order to place blocks next to the slab
+        - Rope onPlayerInteract has been removed
+        - Rope item has onUseOn. Allows for easier placement of blocks around and under the rope.
+          Sneaking with rope and interacting with a rope end piece creates a full length of rope.
+          This was originally done by using shears.
+    Blocks:
+        - Waterlogging added for all blocks
+        - Flax crops & Flax Flowers now have proper water detection similar to vanilla plants
+        - Flax crop visuals have been updated "facing_dimming = false", it's brighter and more vibrant
+        - Flax crops/seeds have been fixed to only allow being placed on farm blocks.(How did i miss this?)
+    Items:
+        - Flax Flower & Flax Seeds now have proper composter compability
+Author comment:
+        Nice to see some more interactions available to addons. This should make the addons more cohesive
+        to the vanilla experience. When minecraft:climbable?
+        Please note. Water detection and composter compability requires UCF, basically, in order to get the
+        most out of this update; TURN ON UPCOMING CREATOR FEATURES
+-----------------------------------------------
+-----------------------------------------------
 v1.2
 Added:
     Generation:
