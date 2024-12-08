@@ -2,7 +2,7 @@
     "format_version": 2,
     "header": {
       "description": "Resource pack for Flax addon v1.2.1", 
-      "name": "Flax",
+      "name": "Flax-RP",
       "uuid":"019c467e-f716-4fa5-8108-ed6747ae482f",
       "version": [1, 2, 1],
       "min_engine_version": [1, 21, 50]
