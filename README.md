@@ -11,6 +11,7 @@ Minecraft Bedrock Edition - min version 1.21.10
 
 **Experiments:**
 - [x] Custom biomes
+- [x] Upcoming Creator Features(Needed for v1.2.1)
  
 ## Installation
 Download the latest .mcaddon file, and once downloaded left click the file and minecraft bedrock should import both the RP and BP folder onto your game
