@@ -1,12 +1,12 @@
 import {ItemStack} from '@minecraft/server';
 
-export function setMainHand(player, equipment, item){
-    if (player.getGameMode() !== "creative") {
+export function setMainHand(player, equipment, item, newItem){
+    if (player.getGameMode() !== "Creative") {
         if (item.amount > 1) {
             item.amount -= 1;
             equipment.setEquipment('Mainhand', item);
         } else if (item.amount === 1) {
-            equipment.setEquipment('Mainhand', undefined);
+            equipment.setEquipment('Mainhand', newItem);
         }
     }
 }

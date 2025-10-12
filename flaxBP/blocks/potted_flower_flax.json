@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.50",
+    "format_version": "1.21.100",
     "minecraft:block": {
       "description": {
         "identifier": "flax:potted_flower_flax",
@@ -9,7 +9,7 @@
         }
       },
       "components": {
-        "minecraft:custom_components": ["flax:on_player_interact_potted_flax"],
+        "flax:on_player_interact_potted_flax": {},
         "minecraft:destructible_by_explosion": {
 			    "explosion_resistance": 30
 		    },
@@ -47,7 +47,10 @@
               "face_dimming": true,
               "ambient_occlusion": false
             }
-        }
+        },
+        "minecraft:movable": {
+            	"movement_type": "popped"
+			  }
       }
     }
   }

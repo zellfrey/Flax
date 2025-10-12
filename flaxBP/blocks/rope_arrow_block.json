@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.80",
+    "format_version": "1.20.100",
     "minecraft:block": {
       "description": {
         "identifier": "flax:rope_arrow_block",
@@ -12,7 +12,7 @@
         }
       },
       "components": {
-        "minecraft:custom_components": ["flax:on_player_destroy_rope_arrow"],
+        "flax:on_player_destroy_rope_arrow": {},
         "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 0.3
         },
@@ -37,7 +37,10 @@
         "minecraft:selection_box": {
           "origin": [-2.0, 0.0, -2.0],
           "size": [4.0, 8.0, 4.0]
-        }
+        },
+        "minecraft:movable": {
+            	"movement_type": "popped"
+			  }
       },
       "permutations": [
         {

@@ -1,8 +1,8 @@
-import {world, ItemStack} from '@minecraft/server';
+import {system, ItemStack} from '@minecraft/server';
 import {setMainHand} from './containerUtils.js';
 
 //flax flower item components
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.itemComponentRegistry.registerCustomComponent('flax:on_use_on_flower_pot', {
         onUseOn(e) {
             const { source, block} = e;
@@ -41,10 +41,10 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 //     });
 // });
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_interact_flower_flax', {
         onPlayerInteract(e) {
-            const {player, block} = e;
+            const {player, block, dimension} = e;
 
             if(!player || !player.getComponent('equippable')) return;
 
@@ -53,7 +53,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             if (!selectedItem || selectedItem.typeId !== "minecraft:shears") return;
 
             block.setType("minecraft:air");
-            world.playSound('dig.grass', block.location);
+            dimension.playSound('dig.grass', block.location);
             player.playSound("mob.sheep.shear")
             block.dimension.spawnItem(new ItemStack("flax:flower_flax_item", 1), block.location)
         }
@@ -62,7 +62,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
 
 //potted flower components(shoving here since its 1 function, and sort of related to the rest here)
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_interact_potted_flax', {
         onPlayerInteract(e) {
             const {player, block} = e;

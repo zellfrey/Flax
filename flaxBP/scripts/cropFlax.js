@@ -1,12 +1,12 @@
-import {world, ItemStack} from '@minecraft/server';
+import {system, ItemStack} from '@minecraft/server';
 import {setMainHand} from './containerUtils.js';
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:grow_basic', {
         onRandomTick(e) {
             const { block } = e;
             const cropStage = block.permutation.getState('flax:growth_stage');
-            if(Math.floor(Math.random() * 100) < 20){
+            if(Math.floor(Math.random() * 100) < 20 && cropStage != 3){
                 block.setPermutation(block.permutation.withState('flax:growth_stage', cropStage+1));
             }
         }
@@ -18,10 +18,10 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     *Source: https://minecraft.fandom.com/wiki/Tutorials/Crop_farming#Growth_rate
     *With that being said, I've reduced the chance from 100% down to 24%. Mean average shit. I changed my mind, im moving it down to 20%
 */ 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:fertilize', {
         onPlayerInteract(e) {
-            const { block, player } = e;
+            const { block, player, dimension} = e;
 
             if(!player || !player.getComponent('equippable')) return;
             
@@ -32,7 +32,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             if (!selectedItem || selectedItem.typeId != "minecraft:bone_meal") return;
             
-            if (player.getGameMode() === "creative"){
+            if (player.getGameMode() === "Creative"){
                 block.setPermutation(block.permutation.withState('flax:growth_stage', maxGrowth)); 
             }
             else{
@@ -42,7 +42,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             }
             setMainHand(player, equipment, selectedItem);
 
-            world.playSound('item.bone_meal.use', block.location);
+            dimension.playSound('item.bone_meal.use', block.location);
 
             block.dimension.spawnParticle("minecraft:crop_growth_emitter", block.center())
         }
@@ -86,12 +86,12 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 //TODO: Current iteration cannot determine the flow direction of water, hence the delicate nature of
 //crops being destroyed from the sheer staring power of flowing liquids.
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_flax', {
-        onPlayerDestroy(e) {
+        onPlayerBreak(e) {
             const {player, block} = e;
 
-            if(!player || player.getGameMode() === "creative" || !player.getComponent('equippable')) return;
+            if(!player || player.getGameMode() === "Creative" || !player.getComponent('equippable')) return;
 
             if(Math.floor(Math.random() * 100) < 10){
                 block.dimension.spawnItem(new ItemStack("flax:flower_flax_item", 1), block.location);

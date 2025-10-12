@@ -1,3 +1,21 @@
+
+v1.2.2
+    - 
+    Scripts:
+        - @minecraft/server updated to V2.1.0
+    Blocks:
+        - Flax blocks now behave appropriately with pistons
+        - Custom components now updated to V2
+        - Flax Flower loottable added, removed playerInteract function
+        - Flax Flower now has random offset placement
+    Items:
+        - Flax Flower & Flax Seeds now have proper composter compability
+Author comment:
+        Nice to see some more interactions available to addons. This should make the addons more cohesive
+        to the vanilla experience. When minecraft:climbable?
+        Please note. Water detection and composter compability requires UCF, i.e TURN ON UPCOMING CREATOR FEATURES
+-----------------------------------------------
+-----------------------------------------------
 v1.2.1
     - Pack names have been changed to better represent each pack. Flax-BP, Flax-RP
     Scripts:

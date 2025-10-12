@@ -4,9 +4,9 @@ import {getItemAmount, removeItemAmount} from "./containerUtils.js"
 import {setBlockChain, breakRopeChain} from './rope.js';
 
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_rope_arrow', {
-        onPlayerDestroy(e) {
+        onPlayerBreak(e) {
             const {player, block} = e;
 
             if(!player || !player.getComponent('equippable')) return;
@@ -48,7 +48,7 @@ world.afterEvents.projectileHitBlock.subscribe(e =>{
             let depth = adjacentBlock.below().location.y - solidBlock.y
             const blockPerm = BlockPermutation.resolve("flax:rope")
 
-            if(player.getGameMode() === "creative"){
+            if(player.getGameMode() === "Creative"){
 
                 system.runJob(setBlockChain(block, blockPerm, adjacentBlock, depth + 1))
                 
@@ -71,7 +71,7 @@ world.afterEvents.projectileHitBlock.subscribe(e =>{
                 }
                 removeItemAmount(inventory,"flax:rope_item", newDepth)
                 //This should give the player an audio feedback that items are leaving their inventory whilst the rope is being placed
-                world.playSound("random.pop", player.location);
+                block.dimension.playSound("random.pop", player.location);
                 system.runJob(setBlockChain(block, blockPerm, adjacentBlock, newDepth + 1))
             }
         }

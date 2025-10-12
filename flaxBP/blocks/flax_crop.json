@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.50",
+  "format_version": "1.21.100",
   "minecraft:block": {
     "description": {
       "identifier": "flax:flax_crop",
@@ -13,7 +13,8 @@
       }
     },
     "components": {
-      "minecraft:custom_components": ["flax:fertilize","flax:grow_basic"],
+      "flax:fertilize": {},
+			"flax:grow_basic": {},
       "minecraft:collision_box": false,
       "minecraft:placement_filter": {
         "conditions": [
@@ -57,7 +58,10 @@
             "face_dimming": false,
             "ambient_occlusion": false
           }
-      }
+      },
+			"minecraft:movable": {
+            	"movement_type": "popped"
+			}
     },
     "permutations": [
       {
@@ -109,8 +113,7 @@
             "origin": [-8, 0, -8],
             "size": [16, 13, 16]
           },
-          "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json",
-          "minecraft:custom_components":["flax:on_player_destroy_flax"]
+          "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json"
         }
       }
     ]

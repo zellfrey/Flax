@@ -2,7 +2,7 @@ import {world, ItemStack, Direction, system, BlockPermutation} from "@minecraft/
 import {setMainHand} from './containerUtils.js';
 import {getBlockFromFace} from './main.js'
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:before_on_place_rotatable_slab', {
         beforeOnPlayerPlace(e) {
             const {block, player, face } = e;
@@ -24,7 +24,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
                     blockToCheck.setPermutation(blockToCheck.permutation.withState('flax:double', true)); 
                     blockToCheck.setPermutation(blockToCheck.permutation.withState('flax:axis', axisNum));
-                    world.playSound('use.grass', blockToCheck.location);
+                    block.dimension.playSound('use.grass', blockToCheck.location);
                     e.cancel = true;
                     setMainHand(player, equipment, selectedItem);
                 }
@@ -34,9 +34,9 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     });
 });
 
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_slab', {
-        onPlayerDestroy(e) {
+        onPlayerBreak(e) {
             const {player, destroyedBlockPermutation: perm } = e;
 
             if (!player || !player.getComponent('equippable'))  return;
@@ -47,7 +47,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             // }
             //TODO
             //Small testing, a sword seems to destroy hay bales faster than other tools. Will also implement more functionality for every tool to loose durability(or maybe it willbe added shortly)
-            if (player.getGameMode() === "creative") return;
+            if (player.getGameMode() === "Creative") return;
 
             const slabItem = perm.getItemStack(1);
             if (slabItem) e.dimension.spawnItem(slabItem, e.block.location);

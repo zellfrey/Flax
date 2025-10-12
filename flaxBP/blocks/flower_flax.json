@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.50",
+  "format_version": "1.21.100",
   "minecraft:block": {
     "description": {
       "identifier": "flax:flower_flax",
@@ -9,7 +9,6 @@
         }
     },
     "components": {
-      "minecraft:custom_components": ["flax:on_player_interact_flower_flax"],
       "minecraft:collision_box": false,
       "minecraft:map_color": "#8aa8ff",
       "minecraft:liquid_detection": {
@@ -22,7 +21,7 @@
         ]
       },
       "minecraft:light_emission": 0,
-      "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json",
+      "minecraft:loot": "loot_tables/blocks/flower_flax.json",
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 0
       },
@@ -34,9 +33,9 @@
       "minecraft:material_instances": {
         "*": {
           "texture": "flower_flax",
-          "render_method": "alpha_test",
-          "face_dimming": false,
-          "ambient_occlusion": false
+          "render_method": "alpha_test_single_sided",
+					"face_dimming": false,
+					"ambient_occlusion": false
         }
       },
       "minecraft:selection_box": {
@@ -50,6 +49,25 @@
             "block_filter": ["minecraft:grass_block", "minecraft:dirt", "minecraft:podzol"]
           }
         ]
+      },
+      "minecraft:movable": {
+            	"movement_type": "popped"
+			},
+      "minecraft:random_offset": {
+        "x": {
+            "steps": 0,
+            "range": {
+                "min": -3,
+                "max": 3
+            }
+        },
+        "z": {
+            "steps": 0,
+            "range": {
+                "min": -3,
+                "max": 3
+            }
+        }
       }
     }
   }

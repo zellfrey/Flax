@@ -2,7 +2,7 @@ import {world, ItemStack, system, BlockPermutation} from "@minecraft/server"
 import {setMainHand} from './containerUtils.js';
 
 //rope item
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.itemComponentRegistry.registerCustomComponent("flax:on_use_on_rope", {
         onUseOn(e) {
             const { source, block, blockFace} = e;
@@ -18,7 +18,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             //changes the rope to allow for decoration
             if(source.isSneaking && isRopeEnd){
                 block.setPermutation(block.permutation.withState("flax:rope_end", false));
-                world.playSound("use.cloth", block.location);
+                block.dimension.playSound("use.cloth", block.location);
                 return;
             }
             //adds 1 rope block to the bottom of a rope column
@@ -38,7 +38,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 if(below.isAir){
                     below.setType("flax:rope")
                     setMainHand(source, equipment, selectedItem);
-                    world.playSound("use.cloth", block.location);
+                    block.dimension.playSound("use.cloth", block.location);
                 }
             }
         }
@@ -46,7 +46,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 });
 
 //rope block
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_place_rope', {
         onPlace(e) {
             const { block } = e;
@@ -78,7 +78,7 @@ export function breakRopeChain(block, player, y){
         // system.runInterval(() => {setBlockChain(block, blockPerm, block.location, depth);}, 10)
         setBlockChain(block, blockPerm, block.location, amount+1)
         )
-    if(player.getGameMode() !== "creative"){
+    if(player.getGameMode() !== "Creative"){
         block.dimension.spawnItem(new ItemStack("flax:rope_item", amount), player.location)
     }
 }
@@ -87,7 +87,7 @@ export function* setBlockChain(origin, newBlock, originLocation, depth){
     for(let i = 1; i < depth; i++){
 		const block = origin.dimension.getBlock({ x: originLocation.x, y: originLocation.y-i, z: originLocation.z })
 		block.setPermutation(newBlock);
-        world.playSound("dig.cloth", block.location);
+        block.dimension.playSound("dig.cloth", block.location);
 		yield
 	}
 }
@@ -95,9 +95,9 @@ export function* setBlockChain(origin, newBlock, originLocation, depth){
 
 //TODO, when origin block is broken, the item spawns in the block, which kind of ruins the method of getting all your items back, so for the time being
 //players will get -1 item, or atleast the original rope will be placed around the rope. Players could mitigate this by breaking the block above
-world.beforeEvents.worldInitialize.subscribe(eventData => {
+system.beforeEvents.startup.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_rope', {
-        onPlayerDestroy(e) {
+        onPlayerBreak(e) {
             const {player, block} = e;
 
             if(!player || !player.getComponent('equippable')) return;
@@ -124,7 +124,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
 const ClimbableBlocks = {
     "flax:rope": {
-        ClimbSpeed: 0.25,
+        ClimbSpeed: 0.275,
         FallSpeed: 0.1
     }
 }
@@ -140,15 +140,15 @@ system.runInterval(()=>{
         let ClimbableBlock = ClimbableBlocks[BlockTop.typeId] ?? ClimbableBlocks[BlockBottom.typeId]
         let hasLevitiation = player.getEffects().find((effect) => effect.typeId === "levitation")
         if (!ClimbableBlock) continue; 
-
+		
         if (player.isJumping){
-            player.applyKnockback(0, 0, 0, ClimbableBlock.ClimbSpeed)
+			player.applyKnockback({ x: 0, z: 0 }, ClimbableBlock.ClimbSpeed);
         }
         else if(hasLevitiation === undefined){
             if(player.isSneaking){
-                player.applyKnockback(0, 1, 0, 0.0135)
+				player.applyKnockback({ x: 0, z: 0 }, 0.0165);
             }else{
-                player.applyKnockback(0, 0, 0, -Math.abs(ClimbableBlock.FallSpeed))
+				player.applyKnockback({ x: 0, z: 0 }, -Math.abs(ClimbableBlock.FallSpeed));
                 player.addEffect("slow_falling", 40, { amplifier: 1, showParticles: false });
             }  
         }
