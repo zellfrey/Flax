@@ -1,11 +1,10 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.40",
   "minecraft:block": {
     "description": {
       "identifier": "flax:flower_flax",
       "menu_category": {
-          "category": "none",
-          "is_hidden_in_commands": true
+          "category": "nature"
         }
     },
     "components": {
@@ -35,7 +34,7 @@
           "texture": "flower_flax",
           "render_method": "alpha_test_single_sided",
 					"face_dimming": false,
-					"ambient_occlusion": false
+					"ambient_occlusion": 0
         }
       },
       "minecraft:selection_box": {
@@ -53,20 +52,21 @@
       "minecraft:movable": {
             	"movement_type": "popped"
 			},
+      "minecraft:precipitation_interactions": {
+        "precipitation_behavior": "snowlogging"
+      },
+      "minecraft:flower_pottable": {},
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
       "minecraft:random_offset": {
         "x": {
             "steps": 0,
-            "range": {
-                "min": -3,
-                "max": 3
-            }
+            "range": {"min": -3, "max": 3}
         },
         "z": {
             "steps": 0,
-            "range": {
-                "min": -3,
-                "max": 3
-            }
+            "range": {"min": -3, "max": 3}
         }
       }
     }

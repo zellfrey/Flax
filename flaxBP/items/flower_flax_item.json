@@ -1,14 +1,13 @@
 {
-    "format_version": "1.21.50",
+    "format_version": "1.26.40",
     "minecraft:item": {
       "description": {
-        "identifier": "flax:flower_flax_item",
+        "identifier": "flax:flower_flax",
         "menu_category": {
                 "category": "items"
             }
       }, 
       "components": {
-        "minecraft:custom_components": ["flax:on_use_on_flower_pot"],
         "minecraft:tags": {
           "tags": [
               "flax:flower"
@@ -23,7 +22,8 @@
           "composting_chance": 65
         },
         "minecraft:block_placer": {
-          "block": "flax:flower_flax"
+          "block": "flax:flower_flax",
+          "replace_block_item": true
         }
       }
     }
