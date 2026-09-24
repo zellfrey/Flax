@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.40",
   "minecraft:block": {
     "description": {
       "identifier": "flax:flax_crop",
@@ -8,13 +8,23 @@
         "is_hidden_in_commands": true
       },
       "states": {
-        "flax:growth_stage": [0, 1, 2, 3],
-        "flax:max_stage":[3,0]
+        "flax:growth": {
+            "values": { "min": 0, "max": 7 }
+        }
       }
     },
     "components": {
-      "flax:fertilize": {},
-			"flax:grow_basic": {},
+      "flax:crop_growth": {
+        "growth_state": "flax:growth",
+        "max_growth": 7,
+        "min_light_level": 9,
+        "farmland_search_range": 1,
+        "farmland_speed_modifier": 1,
+        "farmland_moisture_speed_modifier": 2,
+        "neighboring_farmland_speed_multiplier": 0.25,
+        "crowding_speed_multiplier": 0.5,
+        "growth_on_fertilize": [2, 5]
+      },
       "minecraft:collision_box": false,
       "minecraft:placement_filter": {
         "conditions": [
@@ -34,9 +44,6 @@
         ]
       },
       "minecraft:loot": "loot_tables/blocks/crops/flax_crop_young.json",
-      "minecraft:tick": {
-          "interval_range": [10,10]
-			},
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 0
       },
@@ -56,66 +63,133 @@
             "texture": "flax_crop_0",
             "render_method": "alpha_test",
             "face_dimming": false,
-            "ambient_occlusion": false
+            "ambient_occlusion": 0
           }
       },
 			"minecraft:movable": {
             	"movement_type": "popped"
-			}
+			},
+      "minecraft:precipitation_interactions": {
+          "precipitation_behavior": "none"
+      },
+      "minecraft:connection_rule": {
+          "accepts_connections_from": "none"
+      }
     },
     "permutations": [
-      {
-        "condition": "q.block_state('flax:growth_stage') == 1",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "flax_crop_1",
-              "render_method": "alpha_test",
-              "face_dimming": false,
-              "ambient_occlusion": false
+        {
+            "condition": "q.block_state('flax:growth') < 7",
+            "components": {
+                "minecraft:loot": "loot_tables/blocks/crops/flax_crop_young.json"
             }
-          },
-          "minecraft:selection_box": {
-            "origin": [-8, 0, -8],
-            "size": [16, 5, 16]
+        },
+        {
+          "condition": "q.block_state('flax:growth') == 0",
+          "components": {
+              "minecraft:selection_box": {
+                  "origin": [-8, 0, -8],
+                  "size": [16, 1.6, 16]
+              }
           }
-        }
-      },
-      {
-        "condition": "q.block_state('flax:growth_stage') == 2",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "flax_crop_2",
-              "render_method": "alpha_test",
-              "face_dimming": false,
-              "ambient_occlusion": false
-            }
-          },
-          "minecraft:selection_box": {
-            "origin": [-8, 0, -8],
-            "size": [16, 9, 16]
+        },
+        {
+          "condition": "q.block_state('flax:growth') == 1",
+          "components": {
+              "minecraft:selection_box": {
+                  "origin": [-8, 0, -8],
+                  "size": [16, 3.2, 16]
+              }
           }
-        }
-      },
-      {
-        "condition": "q.block_state('flax:growth_stage') == 3",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "flax_crop_3",
-              "render_method": "alpha_test",
-              "face_dimming": false,
-              "ambient_occlusion": false
+        },
+        {
+          "condition": "q.block_state('flax:growth') >= 2",
+          "components": {
+            "minecraft:material_instances": {
+              "*": {
+                "texture": "flax_crop_1",
+                "render_method": "alpha_test",
+                "face_dimming": false,
+                "ambient_occlusion": 0
+              }
             }
-          },
-          "minecraft:selection_box": {
-            "origin": [-8, 0, -8],
-            "size": [16, 13, 16]
-          },
-          "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json"
+          }
+        },
+        {
+          "condition": "q.block_state('flax:growth') == 2",
+          "components": {
+              "minecraft:selection_box": {
+                  "origin": [-8, 0, -8],
+                  "size": [16, 4.8, 16]
+              }
+          }
+        },
+        {
+          "condition": "q.block_state('flax:growth') == 3",
+          "components": {
+              "minecraft:selection_box": {
+                  "origin": [-8, 0, -8],
+                  "size": [16, 6.4, 16]
+              }
+          }
+        },
+        {
+            "condition": "q.block_state('flax:growth') >= 4",
+            "components": {
+                "minecraft:material_instances": {
+                    "*": {
+                    "texture": "flax_crop_2",
+                    "render_method": "alpha_test",
+                    "face_dimming": false,
+                    "ambient_occlusion": 0
+                  }
+                }
+            }
+        },
+        {
+            "condition": "q.block_state('flax:growth') == 4",
+            "components": {
+                "minecraft:selection_box": {
+                    "origin": [-8, 0, -8],
+                    "size": [16, 8, 16]
+                }
+            }
+        },
+        {
+            "condition": "q.block_state('flax:growth') == 5",
+            "components": {
+                "minecraft:selection_box": {
+                    "origin": [-8, 0, -8],
+                    "size": [16, 9.6, 16]
+                }
+            }
+        },
+        {
+            "condition": "q.block_state('flax:growth') == 6",
+            "components": {
+                "minecraft:selection_box": {
+                    "origin": [-8, 0, -8],
+                    "size": [16, 11.2, 16]
+                }
+            }
+        },
+        {
+            "condition": "q.block_state('flax:growth') == 7",
+            "components": {
+                "minecraft:material_instances": {
+                  "*": {
+                    "texture": "flax_crop_3",
+                    "render_method": "alpha_test",
+                    "face_dimming": false,
+                    "ambient_occlusion": 0
+                  }
+                },
+                "minecraft:selection_box": {
+                    "origin": [-8, 0, -8],
+                    "size": [16, 13, 16]
+                },
+                "minecraft:loot": "loot_tables/blocks/crops/flax_crop_mature.json"
+            }
         }
-      }
     ]
   }
 }
