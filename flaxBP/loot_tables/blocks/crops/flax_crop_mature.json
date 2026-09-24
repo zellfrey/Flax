@@ -7,28 +7,53 @@
                     "type": "item",
                     "name": "flax:flax_fibre",
                     "functions": [
-                            {
-                                "function": "set_count",
-                                "count": 3
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 4
                             }
-                        ],
-                    "weight": 6
+                        }
+                    ],
+                    "weight": 7
                 },
                 {
                     "type": "item",
                     "name": "flax:flax_seeds",
                     "functions": [
-                            {
-                                "function": "set_count",
-                                "count": 2
-                            }
-                        ],
+                        {
+                            "function": "set_count",
+                            "count": 1
+                        }
+                    ],
                     "weight": 3
+                }
+            ]
+        },
+        {
+        "rolls": 1,
+        "entries": [
+                {
+                    "type": "item",
+                    "name": "flax:flax_seeds",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": 1
+                        }
+                    ],
+                    "weight": 85
                 },
                 {
                     "type": "item",
-                    "name": "flax:flower_flax_item",
-                    "weight": 1
+                    "name": "flax:flower_flax",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": 1
+                        }
+                    ],
+                    "weight": 15
                 }
             ]
         }

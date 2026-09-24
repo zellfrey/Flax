@@ -2,6 +2,18 @@
 	"pools": [
 		{
 			"rolls": 1,
+			// "conditions": [
+			// 	{
+			// 		"condition": "match_tool",
+			// 		"minecraft:match_tool_filter_none": [
+			// 			"minecraft:is_shears"
+			// 		],
+			// 		"count": 1,
+			// 		"durability": {  
+			// 			"range_min": 1  
+			// 		}
+			// 	}
+			// ],
 			"entries": [
 				{
 					"type": "item",
@@ -18,13 +30,16 @@
 		// 			"minecraft:match_tool_filter_all": [
 		// 				"minecraft:is_shears"
 		// 			],
-		// 			"count": 1
+		// 			"count": 1,
+		// 			"durability": {  
+		// 				"range_min": 1  
+		// 			}
 		// 		}
 		// 	],
 		// 	"entries": [
 		// 		{
 		// 			"type": "item",
-		// 			"name": "flax:flower_flax_item"
+		// 			"name": "flax:flower_flax"
 		// 		}
 		// 	]
 		// }
