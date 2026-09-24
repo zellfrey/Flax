@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.80",
+    "format_version": "1.26.40",
     "minecraft:item": {
       "description": {
         "identifier": "flax:flax_fibre",
@@ -11,6 +11,9 @@
         "minecraft:icon": "flax_fibre",
         "minecraft:display_name":{
           "value": "item.flax:flax_fibre.name"
+        },
+        "minecraft:compostable":{
+          "composting_chance": 10
         },
         "minecraft:hand_equipped": false
       }
