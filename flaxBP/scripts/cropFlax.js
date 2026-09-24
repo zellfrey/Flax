@@ -133,17 +133,3 @@ export function randomShouldCropGrow(crop, growthParams) {
 
     return randomInt(0, growthChanceRange) === 0;
 }
-
-system.beforeEvents.startup.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('flax:on_player_destroy_flax', {
-        onPlayerBreak(e) {
-            const {player, block} = e;
-
-            if(!player || player.getGameMode() === "Creative" || !player.getComponent('equippable')) return;
-
-            if(Math.floor(Math.random() * 100) < 10){
-                block.dimension.spawnItem(new ItemStack("flax:flower_flax_item", 1), block.location);
-            }
-        }
-    });
-});
