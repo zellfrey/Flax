@@ -1,26 +1,24 @@
 {
 	"format_version": "1.12.0",
 	"minecraft:recipe_shapeless": {
-	  "description": {
-	  "identifier": "flax:flax_to_string"
-	  },
-	  
-	  "tags": [ "crafting_table" ],
-	  "ingredients": [
-		{
-		  "item": "flax:flax_fibre"
+		"description": {
+		"identifier": "flax:flax_to_string"
 		},
-		{
-		  "item": "flax:flax_fibre"
-		},
-		{
-		  "item": "flax:flax_fibre"
+		"tags": [ "crafting_table" ],
+		"ingredients": [
+			{
+				"item": "flax:flax_fibre"
+			},
+			{
+				"item": "flax:flax_fibre"
+			},
+			{
+				"item": "flax:flax_fibre"
+			}
+		],
+		"result": {
+			"item": "minecraft:string",
+			"count": 1
 		}
-	  ],
-	  "result": {
-		"item": "minecraft:string",
-		"count": 1
-	  }
 	}
-  }
-  
+}

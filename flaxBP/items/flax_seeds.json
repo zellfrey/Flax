@@ -1,29 +1,29 @@
 {
-    "format_version": "1.26.40",
-    "minecraft:item": {
-      "description": {
-        "identifier": "flax:flax_seeds",
-        "menu_category": {
-                "category": "items"
-            }
-      }, 
-      "components": {
-        "minecraft:tags": {
-          "tags": [
-              "flax:seeds"
-          ]
-        },
-        "minecraft:hand_equipped": false,
-        "minecraft:icon": "flax_seeds",
-        "minecraft:display_name":{
-          "value": "item.flax:flax_seeds.name"
-        },
-        "minecraft:compostable":{
-          "composting_chance": 30
-        },
-        "minecraft:block_placer": {
+	"format_version": "1.26.40",
+	"minecraft:item": {
+		"description": {
+			"identifier": "flax:flax_seeds",
+			"menu_category": {
+				"category": "items"
+			}
+		}, 
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"flax:seeds"
+				]
+			},
+			"minecraft:hand_equipped": false,
+			"minecraft:icon": "flax_seeds",
+			"minecraft:display_name":{
+				"value": "item.flax:flax_seeds.name"
+			},
+			"minecraft:compostable":{
+				"composting_chance": 30
+			},
+			"minecraft:block_placer": {
 				"block": "flax:flax_crop"
-        }
-      }
-    }
-  }
+			}
+		}
+	}
+}

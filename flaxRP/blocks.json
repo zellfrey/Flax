@@ -1,22 +1,22 @@
 { 
-  "format_version": "1.12.0", 
-  "flax:thatch":{
-    "sound" : "grass"
-  },
-  "flax:flax_crop": {
+	"format_version": "1.12.0", 
+	"flax:thatch":{
+		"sound" : "grass"
+	},
+	"flax:flax_crop": {
 		"sound": "grass"
 	},
-  "flax:thatch_carpet":{
-    "sound" : "grass"
-  },
-  "flax:flower_flax": {
+	"flax:thatch_carpet":{
+		"sound" : "grass"
+	},
+	"flax:flower_flax": {
 		"sound": "grass"
 	},
-  "flax:rope:":{
-    "sound": "cloth"
-  },
-  "flax:thatch_slab":{
-    "sound" : "grass"
-  }
+	"flax:rope:":{
+		"sound": "cloth"
+	},
+	"flax:thatch_slab":{
+		"sound" : "grass"
+	}
 }
 
