@@ -1,65 +1,63 @@
 {
-	"format_version": "1.21.100",
+	"format_version": "1.26.40",
 	"minecraft:block": {
 		"description": {
 			"identifier": "flax:thatch",
 			"menu_category": {
 				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+				}
 			}
-			// "traits": {
-			// 	"minecraft:placement_position": {
-			// 		"enabled_states": ["minecraft:block_face"]
-			// 	}
-			// }
 		},
 		"components": {
-		"tag:minecraft:is_hoe_item_destructible": {},
-		"minecraft:flammable": {
-			"catch_chance_modifier": 60, 
-			"destroy_chance_modifier": 20
-		},
-		"minecraft:map_color": "#caa851", 
-		"minecraft:destructible_by_explosion": {
-			"explosion_resistance": 30
-		},
-		"minecraft:destructible_by_mining": {
-			"seconds_to_destroy": 0.5
-		},
-		"minecraft:material_instances": {
-			"*": {
-				"texture": "thatch_side"
+			"minecraft:tags": ["minecraft:is_hoe_item_destructible"],
+			"minecraft:flammable": {
+				"catch_chance_modifier": 60, 
+				"destroy_chance_modifier": 20
 			},
-			"end": {
-				"texture": "thatch_top"
+			"minecraft:map_color": "#caa851", 
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2.5
 			},
-			"up": "end",
-			"down": "end"
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.75
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "thatch_side"
+				},
+				"up": {
+					"texture": "thatch_top"
+				},
+				"down": {
+					"texture": "thatch_top"
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true
+			}
 		},
-		"minecraft:geometry": "minecraft:geometry.full_block"
-		},
-		"minecraft:redstone_conductivity": {
-			//"redstone_conductor": true,
-			"allows_wire_to_step_down": true
-		}
-		// "permutations": [
-		// 	{
-		// 	"condition": "query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south'",
-		// 		"components": {
-		// 			"minecraft:transformation": {
-		// 				"rotation": [90,0,0]
-		// 			}
-		// 		}
-		// 	},
-		// 	{
-		// 	"condition": "query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west'",
-		// 		"components": {
-		// 			"minecraft:transformation": {
-		// 				"rotation": [0,90,-90]
-		// 			}
-		// 		}
-		// 	}
-		// ]
+		"permutations": [
+			{
+			"condition": "query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90,0,0]
+					}
+				}
+			},
+			{
+			"condition": "query.block_state('minecraft:block_face') == 'east' || query.block_state('minecraft:block_face') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0,90,-90]
+					}
+				}
+			}
+		]
 	}
 }
-
-  
