@@ -46,7 +46,7 @@
 			"condition": "query.block_state('minecraft:block_face') == 'north' || query.block_state('minecraft:block_face') == 'south'",
 				"components": {
 					"minecraft:transformation": {
-						"rotation": [90,0,0]
+						"rotation": [0,90,0]
 					}
 				}
 			},

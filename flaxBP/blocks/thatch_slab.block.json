@@ -1,0 +1,179 @@
+{
+	"format_version": "1.26.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "flax:thatch_slab",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face","minecraft:vertical_half"]
+				}
+			},
+			"states": {
+				"flax:axis":[0,1,2],
+				"flax:double": [false, true]
+			}
+		},
+		"components": {
+			"minecraft:tags": ["minecraft:is_hoe_item_destructible"],
+			"flax:combine_thatch_slab": {},
+			"minecraft:display_name": "tile.flax:thatch_slab.name",
+			"minecraft:flammable": {
+				"catch_chance_modifier": 60, 
+				"destroy_chance_modifier": 20
+			},
+			"minecraft:map_color": "#caa851", 
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2.5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.75
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"can_contain_liquid": true,
+            			"on_liquid_touches": "no_reaction"
+					}
+				]
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "thatch_side_horizontal"
+				},
+				"west": {
+					"texture": "thatch_top"
+				},
+				"east": {
+					"texture": "thatch_top"
+				}
+			},
+			"minecraft:geometry": { 
+				"identifier": "geometry.slab_rotatable",
+				"bone_visibility": { 
+					"slab_top": "q.block_state('minecraft:vertical_half') == 'top'", 
+					"slab_bottom": "q.block_state('minecraft:vertical_half') == 'bottom'" 
+				}
+			},
+			// "minecraft:item_visual": {
+			// 	"geometry": "geometry.slab",
+			// 	"material_instances": {
+			// 		"*": {
+			// 		"texture": "thatch_side_horizontal"
+			// 		},
+			// 		"west": {
+			// 			"texture": "thatch_top"
+			// 		},
+			// 		"east": {
+			// 			"texture": "thatch_top"
+			// 		}
+			// 	}
+			// },
+			"minecraft:connection_rule": {
+				"accepts_connections_from": "none"
+			}
+		},
+		"permutations": [
+			{
+			"condition": "(q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "thatch_side"
+						},
+						"up": {
+							"texture": "thatch_top"
+						},
+						"down": {
+							"texture": "thatch_top"
+						}
+					},
+					"minecraft:geometry": { 
+						"identifier": "geometry.slab",
+						"bone_visibility": { 
+							"slab_top": "q.block_state('minecraft:vertical_half') == 'top'", 
+							"slab_bottom": "q.block_state('minecraft:vertical_half') == 'bottom'" 
+						}
+					}
+				}
+			},
+			{
+			"condition": "(q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south') && !q.block_state('flax:double')",
+				"components": {
+					"minecraft:transformation": { "rotation": [0, -90, 0] }
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:vertical_half') == 'bottom' && !q.block_state('flax:double')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 8, 16]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0],
+						"size": [16.0, 8.0, 16.0]
+					}
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('flax:double')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 8, -8],
+						"size": [16, 8, 16]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8.0, 8.0, -8.0],
+						"size": [16.0, 8.0, 16.0]
+					}
+				}
+			},
+			{
+			"condition": "q.block_state('flax:axis') == 1",
+				"components": {
+					"minecraft:transformation": {"rotation": [90,0,0]}
+				}
+			},
+			{
+			"condition": "q.block_state('flax:axis') == 2",
+				"components": {
+					"minecraft:transformation": {"rotation": [0,90,-90]}
+				}
+			},
+			{
+			"condition": "q.block_state('flax:double')",
+				"components": {
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "thatch_side"
+						},
+						"up": {
+							"texture": "thatch_top"
+						},
+						"down": {
+							"texture": "thatch_top"
+						}
+					},
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"liquid_type": "water",
+								"can_contain_liquid": false
+							}
+						]
+					},
+					"minecraft:redstone_conductivity": {
+						"redstone_conductor": true
+					},
+					"minecraft:connection_rule": {
+						"accepts_connections_from": "all"
+					}
+				}
+			}
+		]
+	}
+}
