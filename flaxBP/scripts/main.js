@@ -1,6 +1,7 @@
 import {world, system, Direction} from "@minecraft/server"
 import "./containerUtils"
 import "./rope.js";
+import "./ropeClimb.js";
 import "./ropeArrow.js"
 import "./cropFlax.js"
 import "./flowerFlax.js"

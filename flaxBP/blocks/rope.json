@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.50",
+	"format_version": "1.26.40",
 	"minecraft:block": {
 		"description": {
 			"identifier": "flax:rope",
@@ -12,8 +12,8 @@
 			}
 		},
 		"components": {
-			"minecraft:custom_components": ["flax:on_player_destroy_rope", "flax:on_place_rope"],
-			"tag:rope": {},
+			"flax:on_player_destroy_rope": {},
+			"flax:on_place_rope": {},
 			"minecraft:flammable": {
 				"catch_chance_modifier": 5, 
 				"destroy_chance_modifier": 20
@@ -32,6 +32,11 @@
 					}
 				]
 			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "rope_end"
+				}
+			},
 			"minecraft:geometry": { 
 				"identifier": "geometry.rope",
 				"bone_visibility": { 
@@ -39,6 +44,14 @@
 					"rope_end": "q.block_state('flax:rope_end')" 
 				}
 			}, 
+			"minecraft:collision_box": {
+				"origin": [-2, 8, -2],
+				"size": [4, 8, 4]
+			},
+			"minecraft:selection_box": {
+				"origin": [-2.0, 8.0, -2.0],
+				"size": [4.0, 8.0, 4.0]
+			},
 			"minecraft:placement_filter": {
 				"conditions": [
 					{
@@ -46,7 +59,16 @@
 					}
 				]
 			},
-			"minecraft:loot": "loot_tables/blocks/rope.json"
+			"minecraft:loot": "loot_tables/blocks/rope.json",
+			"minecraft:connection_rule": {
+				"accepts_connections_from": "none"
+			},
+			"minecraft:movable": {
+				"movement_type": "popped"
+			},
+			"minecraft:precipitation_interactions": {
+				"precipitation_behavior": "none"
+			}
 		},
 		"permutations": [
 			{
@@ -64,24 +86,6 @@
 					"minecraft:selection_box": {
 						"origin": [-2.0, 0.0, -2.0],
 						"size": [4.0, 16.0, 4.0]
-					}
-				}
-			},
-			{
-			"condition": "q.block_state('flax:rope_end')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "rope_end"
-						}
-					},
-					"minecraft:collision_box": {
-						"origin": [-2, 8, -2],
-						"size": [4, 8, 4]
-					},
-					"minecraft:selection_box": {
-						"origin": [-2.0, 8.0, -2.0],
-						"size": [4.0, 8.0, 4.0]
 					}
 				}
 			}

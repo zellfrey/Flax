@@ -7,7 +7,7 @@ system.beforeEvents.startup.subscribe(eventData => {
         onUseOn(e) {
             const { source, block, blockFace} = e;
 
-            if(blockFace === "Down") return;
+            if(blockFace === "Down" || block.typeId !== "flax:rope") return;
 
             const equipment = source.getComponent('equippable');
             const selectedItem = equipment.getEquipment('Mainhand');
@@ -23,27 +23,34 @@ system.beforeEvents.startup.subscribe(eventData => {
             }
             //adds 1 rope block to the bottom of a rope column
             if(block.location.y != minRange){
-                let below; 
-                if(isRopeEnd){
-                    below = block.below();
-                }
-                else{
-                    const ropeEndPoint = findRopeEnd(block, minRange);
 
-                    if(ropeEndPoint.location.y == minRange) return;
-
-                    below = ropeEndPoint.dimension.getBlock({x:ropeEndPoint.x , y:ropeEndPoint.y - 1, z:ropeEndPoint.z})
-                }
-                
-                if(below.isAir){
-                    below.setType("flax:rope")
-                    setMainHand(source, equipment, selectedItem);
+                let belowBlock = getAvailableBlockBelow(block, isRopeEnd, minRange); 
+                  
+                if(belowBlock.typeId !== "minecraft:lava" && (belowBlock.isAir || belowBlock.isLiquid)){
+                    belowBlock.setType("flax:rope")
+                    
+                    if(belowBlock.isLiquid) belowBlock.setWaterLogged(true);
+                    
                     block.dimension.playSound("use.cloth", block.location);
+
+                    setMainHand(source, equipment, selectedItem);
                 }
             }
         }
     });
 });
+function getAvailableBlockBelow(block, isRopeEnd, minRange){
+    if(isRopeEnd){
+        return block.below();
+    }
+    else{
+        const ropeEndPoint = findRopeEnd(block, minRange);
+
+        if(ropeEndPoint.location.y == minRange) return;
+
+       return ropeEndPoint.dimension.getBlock({x:ropeEndPoint.x , y:ropeEndPoint.y - 1, z:ropeEndPoint.z})
+    }
+}
 
 //rope block
 system.beforeEvents.startup.subscribe(eventData => {
@@ -122,35 +129,3 @@ system.beforeEvents.startup.subscribe(eventData => {
 //     }
 // })
 
-const ClimbableBlocks = {
-    "flax:rope": {
-        ClimbSpeed: 0.275,
-        FallSpeed: 0.1
-    }
-}
-
-//Thanks to discord user: finnafinest_ for the original ladder code
-system.runInterval(()=>{
-    for (let player of world.getAllPlayers()) {
-
-        if(player.isFlying) continue;
-
-        let BlockTop = player.dimension.getBlock({x: player.location.x, y: player.location.y + 0.5, z: player.location.z})
-        let BlockBottom = player.dimension.getBlock(player.location)
-        let ClimbableBlock = ClimbableBlocks[BlockTop.typeId] ?? ClimbableBlocks[BlockBottom.typeId]
-        let hasLevitiation = player.getEffects().find((effect) => effect.typeId === "levitation")
-        if (!ClimbableBlock) continue; 
-		
-        if (player.isJumping){
-			player.applyKnockback({ x: 0, z: 0 }, ClimbableBlock.ClimbSpeed);
-        }
-        else if(hasLevitiation === undefined){
-            if(player.isSneaking){
-				player.applyKnockback({ x: 0, z: 0 }, 0.0165);
-            }else{
-				player.applyKnockback({ x: 0, z: 0 }, -Math.abs(ClimbableBlock.FallSpeed));
-                player.addEffect("slow_falling", 40, { amplifier: 1, showParticles: false });
-            }  
-        }
-    }
-})
