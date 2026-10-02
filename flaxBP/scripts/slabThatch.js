@@ -1,6 +1,8 @@
 import { Direction, GameMode, ItemStack, Player, system } from "@minecraft/server";
 import {setMainHand} from './containerUtils.js';
-// import {getBlockFromFace} from './main.js'
+
+//https://github.com/Kaioga5/Kaioga-s-Block-Templates/blob/main/templates/1.26.40/wooden_slab/behavior_pack/scripts/combine.js
+//Thanks to Kaioga for the code. Immensely useful and fantastic work!
 
 // Makes two half slabs merge into a double slab, the way vanilla slabs do.
 // The engine has no native support for this on custom blocks, so one custom
