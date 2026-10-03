@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.100",
+	"format_version": "1.26.40",
 	"minecraft:block": {
 		"description": {
 			"identifier": "flax:rope_arrow_block",
@@ -27,7 +27,7 @@
 					"texture": "rope_arrow",
 					"render_method": "alpha_test",
 					"face_dimming": true,
-					"ambient_occlusion": false
+					"ambient_occlusion": 0
 				}
 			},
 			"minecraft:collision_box": {
@@ -40,6 +40,17 @@
 			},
 			"minecraft:movable": {
 				"movement_type": "popped"
+			},
+			"minecraft:connection_rule": {
+				"accepts_connections_from": "none"
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"liquid_type": "water",
+						"can_contain_liquid": true
+					}
+				]
 			}
 		},
 		"permutations": [

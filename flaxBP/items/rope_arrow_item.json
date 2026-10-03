@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.26.40",
 	"minecraft:item": {
 		"description": {
 			"identifier": "flax:rope_arrow_item",

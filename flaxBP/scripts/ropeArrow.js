@@ -82,7 +82,9 @@ function getNextSolidBlock(origin, minRange){
     let solidBlock;
     while (below > minRange){
         solidBlock = origin.dimension.getBlock({x:origin.x , y:below, z:origin.z})
-        if(!solidBlock.isAir) return solidBlock;
+
+        if((!solidBlock.isAir && !solidBlock.isLiquid)  || solidBlock.typeId === "minecraft:lava") return solidBlock;
+        
         below--;
     }  
     return solidBlock = origin.dimension.getBlock({x:origin.x , y:minRange, z:origin.z});
