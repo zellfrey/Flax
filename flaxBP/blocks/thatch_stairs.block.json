@@ -1,0 +1,306 @@
+{
+	"format_version": "1.26.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "flax:thatch_stairs",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:corner_and_cardinal_direction"],
+						"blocks_to_corner_with": [
+						{
+							"tags": "q.any_tag('minecraft:cornerable_stairs')"
+						}
+					]
+				},
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:vertical_half"]
+				}
+			}
+		},
+		"components": {
+			"minecraft:tags": ["minecraft:cornerable_stairs", "minecraft:is_hoe_item_destructible"],
+			"minecraft:display_name": "tile.flax:thatch_stairs.name",
+			"minecraft:geometry": {
+				"identifier": "geometry.thatch_stairs",
+				"uv_lock": true,
+				"bone_visibility": {
+					"north_east_bottom": "q.block_state('minecraft:vertical_half') == 'bottom' || q.block_state('minecraft:corner') != 'outer_left'",
+					"north_west_bottom": "q.block_state('minecraft:vertical_half') == 'bottom' || q.block_state('minecraft:corner') != 'outer_right'",
+					"south_east_bottom": "q.block_state('minecraft:vertical_half') == 'bottom' || q.block_state('minecraft:corner') == 'inner_right'",
+					"south_west_bottom": "q.block_state('minecraft:vertical_half') == 'bottom' || q.block_state('minecraft:corner') == 'inner_left'",
+					"north_east_top": "q.block_state('minecraft:vertical_half') == 'top' || q.block_state('minecraft:corner') != 'outer_left'",
+					"north_west_top": "q.block_state('minecraft:vertical_half') == 'top' || q.block_state('minecraft:corner') != 'outer_right'",
+					"south_east_top": "q.block_state('minecraft:vertical_half') == 'top' || q.block_state('minecraft:corner') == 'inner_right'",
+					"south_west_top": "q.block_state('minecraft:vertical_half') == 'top' || q.block_state('minecraft:corner') == 'inner_left'"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "thatch_side"
+				},
+				"up": {
+					"texture": "thatch_top"
+				},
+				"down": {
+					"texture": "thatch_top"
+				}
+			},
+			"minecraft:item_visual": {
+				"geometry": {
+					"identifier": "geometry.thatch_stairs",
+					"uv_lock": true,
+					"bone_visibility": {
+						"north_east_bottom": "true",
+						"north_west_bottom": "true",
+						"south_east_bottom": "true",
+						"south_west_bottom": "true",
+						"north_east_top": "true",
+						"north_west_top": "false",
+						"south_east_top": "true",
+						"south_west_top": "false"
+					}
+				},
+			"material_instances": {
+					"*": {
+						"texture": "thatch_side"
+					},
+					"up": {
+						"texture": "thatch_top"
+					},
+					"down": {
+						"texture": "thatch_top"
+					}
+				}
+			},
+			"minecraft:support": {
+				"shape": "stair"
+			},
+			"minecraft:map_color": "#caa851",
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": false
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"liquid_type": "water",
+						"can_contain_liquid": true,
+						"on_liquid_touches": "no_reaction"
+					}
+				]
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.75
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2.5
+			},
+			"minecraft:instrument_sound": {
+				"up": "note.banjo"
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
+			},
+			"minecraft:flammable": {
+				"catch_chance_modifier": 60, 
+				"destroy_chance_modifier": 20
+			},
+			"minecraft:sound": {
+				"sound": "grass"
+			}
+		},
+		"permutations": [
+			{
+			"condition": "q.block_state('minecraft:corner') == 'none' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'none' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'outer_right' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 8, -8],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'outer_right' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 0, -8],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'outer_left' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+				"minecraft:collision_box": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [0, 8, -8],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'outer_left' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [0, 0, -8],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'inner_right' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 8]
+						},
+						{
+							"origin": [-8, 8, 0],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'inner_right' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 8]
+						},
+						{
+							"origin": [-8, 0, 0],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'inner_left' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 8]
+						},
+						{
+							"origin": [0, 8, 0],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:corner') == 'inner_left' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [-8, 8, -8],
+							"size": [16, 8, 16]
+						},
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 8]
+						},
+						{
+							"origin": [0, 0, 0],
+							"size": [8, 8, 8]
+						}
+					]
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0 ]
+					}
+				}
+			},
+			{
+			"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": { "rotation": [0, -90, 0] }
+				}
+			}
+		]
+	}
+}
