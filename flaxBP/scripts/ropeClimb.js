@@ -1,6 +1,7 @@
 import { Block, ButtonState, EntityDamageCause, InputButton, Player, system, world } from "@minecraft/server";
 
 const ROPE_ID = "flax:rope";
+const ROPE_ARROW = "flax:rope_arrow_block"
 const SLIDE_SPEED = 0.275;
 const CLIMB_KNOCKBACK = 0.275;
 const HOLD_KNOCKBACK = 0.033;
@@ -113,7 +114,7 @@ world.beforeEvents.entityHurt.subscribe((event) => {
     y: Math.floor(loc.y),
     z: Math.floor(loc.z),
   });
-  if (block !== undefined && block.typeId === ROPE_ID) {
+  if (block !== undefined && (block.typeId === ROPE_ID || block.typeId === ROPE_ARROW)) {
     event.cancel = true;
   }
 });

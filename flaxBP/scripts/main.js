@@ -4,7 +4,7 @@ import "./rope.js";
 import "./ropeClimb.js";
 import "./ropeArrow.js"
 import "./cropFlax.js"
-import "./flowerFlax.js"
+//import "./flowerFlax.js"
 import "./slabThatch.js"
 // import "./seedsFlax.js"
 //General methods that don't fit a theme 

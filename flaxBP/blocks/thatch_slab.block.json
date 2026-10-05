@@ -57,20 +57,26 @@
 					"slab_bottom": "q.block_state('minecraft:vertical_half') == 'bottom'" 
 				}
 			},
-			// "minecraft:item_visual": {
-			// 	"geometry": "geometry.slab",
-			// 	"material_instances": {
-			// 		"*": {
-			// 		"texture": "thatch_side_horizontal"
-			// 		},
-			// 		"west": {
-			// 			"texture": "thatch_top"
-			// 		},
-			// 		"east": {
-			// 			"texture": "thatch_top"
-			// 		}
-			// 	}
-			// },
+			"minecraft:item_visual": {
+				"geometry": {
+					"identifier": "geometry.slab",
+					"bone_visibility": { 
+						"slab_top": "false", 
+						"slab_bottom": "true" 
+					}
+				},
+				"material_instances": {
+					"*": {
+					"texture": "thatch_side_horizontal"
+					},
+					"west": {
+						"texture": "thatch_top"
+					},
+					"east": {
+						"texture": "thatch_top"
+					}
+				}
+			},
 			"minecraft:connection_rule": {
 				"accepts_connections_from": "none"
 			}
