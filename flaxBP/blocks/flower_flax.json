@@ -68,6 +68,9 @@
 					"steps": 0,
 					"range": {"min": -3, "max": 3}
 				}
+			},
+			"minecraft:sound": {
+				"sound": "grass"
 			}
 		}
 	}

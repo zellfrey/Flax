@@ -68,6 +68,9 @@
 			},
 			"minecraft:precipitation_interactions": {
 				"precipitation_behavior": "none"
+			},
+			"minecraft:sound": {
+				"sound": "cloth"
 			}
 		},
 		"permutations": [
