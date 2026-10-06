@@ -1,4 +1,30 @@
+v1.3
+Added:
+    - Thatch Stairs
+    - Vibrant Visual compability
+    - No experiments needed
+Updated:
+    - All blocks bumped to format version 1.26.40
+    - Rope climbing algorithm updated to better represent vanilla ladders*
+    - Slab placement script updated
+    - Flax crop growth algorithm to better represent vanilla crops. Note, they will take longer to grow.
+    - Flax crop loot table changed
+    - Flax flower can now be pottable
+Removed:
+    - Potted Flax flower
+    - blocks.json
+    - A bunch of unnecessary code & components.
+Author comment:
+10,000 years this took me. I was trapped in the twisting ne-... I was lazy and just wanted to forget about this
+addon purely because the intial premise of the addon (rope climbing) was half baked AT best. But Curseforge and
+I worked against myself, and this addon has been haunting me. Until I finally awoke from cold sweat to a message saying
+"can you get this out of experimental". "I guess I should do it at some point", I thought. So here we are.
 
+*The rope is a closer representation of vanilla ladders; HOWEVER in order to not suffer fall damage when you
+are descending the rope all that is needed to prevent this is just go up the ladder an inch or 2 and the fall
+damage calculation will sort itself out again.
+-----------------------------------------------
+-----------------------------------------------
 v1.2.2
     - 
     Scripts:

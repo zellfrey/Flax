@@ -1,11 +1,11 @@
 {
 	"format_version": 2, 
 	"header": { 
-		"description": "Behaviour pack for Flax addon v1.2.3", 
+		"description": "Behaviour pack for Flax addon v1.3.0", 
 		"name": "Flax-BP", 
 		"uuid": "46dc1795-d185-4d8f-b68f-73f35a34be28", 
-		"version": [ 1, 2, 3 ], 
-		"min_engine_version": [ 1, 21, 50 ] 
+		"version": [ 1, 3, 0 ], 
+		"min_engine_version": [ 1, 26, 40 ] 
 	},
 	"metadata":{
 		"authors":["Beardedflea/Zellfrey"],
@@ -14,14 +14,14 @@
 	}, 
 	"modules": [ 
 		{ 
-			"description": "Behaviour pack for Flax addon v1.2.3", 
+			"description": "Behaviour pack for Flax addon v1.3.0", 
 			"type": "data", 
 			"uuid": "d46e9cbe-0d9e-44cf-abee-1380742e3924", 
-			"version": [ 1, 2, 3 ] 
+			"version": [ 1, 3, 0 ] 
 		},
 		{
 			"uuid": "e9211b21-6fa2-4fd7-8fd9-e3e5a1a1a6d5",
-			"version": [1, 2, 3],
+			"version": [1, 3, 0],
 			"type": "script",
 			"language": "javascript",
 			"entry": "scripts/main.js"
@@ -30,11 +30,11 @@
 	"dependencies": [ 
 		{ 
 			"uuid": "019c467e-f716-4fa5-8108-ed6747ae482f", 
-			"version": [ 1, 2, 3 ] 
+			"version": [ 1, 3, 0 ] 
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "2.1.0"
+			"version": "2.9.0"
 		} 
 	]
 }
