@@ -10,7 +10,8 @@
 	"metadata":{
 		"authors":["Beardedflea/Zellfrey"],
 		"licence":"Please dont copy my homework",
-		"url":"https://github.com/zellfrey"
+		"url":"https://github.com/zellfrey",
+        "product_type": "addon"
 	}, 
 	"modules": [ 
 		{ 
