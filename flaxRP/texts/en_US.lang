@@ -14,6 +14,7 @@ item.flax:thatch_horizontal_stairs.name=Horizontal Thatch Stairs
 tile.flax:thatch.name=Thatch
 tile.flax:thatch_slab.name=Thatch Slab
 tile.flax:thatch_stairs.name=Thatch Stairs
+tile.flax:thatch_horizontal_stairs.name=Horizontal Thatch Stairs
 ##---------------------------------
 
 ##---------------------------------
