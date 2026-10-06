@@ -26,7 +26,7 @@ system.beforeEvents.startup.subscribe(eventData => {
 
                 let belowBlock = getAvailableBlockBelow(block, isRopeEnd, minRange); 
                   
-                if(belowBlock.typeId !== "minecraft:lava" && (belowBlock.isAir || belowBlock.isLiquid)){
+                if(belowBlock !== undefined && belowBlock.typeId !== "minecraft:lava" && (belowBlock.isAir || belowBlock.isLiquid)){
                     belowBlock.setType("flax:rope")
                     
                     if(belowBlock.isLiquid) belowBlock.setWaterLogged(true);
