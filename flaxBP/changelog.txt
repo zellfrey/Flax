@@ -2,6 +2,7 @@ v1.3
 Added:
     - Thatch Stairs
     - Vibrant Visual compability
+    - Achievement Friendly
     - No experiments needed
 Updated:
     - All blocks bumped to format version 1.26.40
